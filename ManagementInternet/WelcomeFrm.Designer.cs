@@ -65,6 +65,7 @@
             this.btnOpenStaffForm.TabIndex = 1;
             this.btnOpenStaffForm.Text = "Nhân viên";
             this.btnOpenStaffForm.UseVisualStyleBackColor = true;
+            this.btnOpenStaffForm.Click += new System.EventHandler(this.btnOpenStaffForm_Click);
             // 
             // btnOpenClientForm
             // 
@@ -86,7 +87,7 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Quán NET 3 BET";
             // 
-            // WelcomeForm
+            // WelcomeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,7 +95,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Name = "WelcomeForm";
+            this.Name = "WelcomeFrm";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -55,6 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Duy%27sForm\AddingClientFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Duy%27sForm\AddingClientFrm.Designer.cs">
+      <DependentUpon>AddingClientFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Duy%27sForm\ChangingStaffFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Duy%27sForm\ChangingStaffFrm.Designer.cs">
+      <DependentUpon>ChangingStaffFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Duy%27sForm\XCyberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Duy%27sForm\XCyberForm.Designer.cs">
+      <DependentUpon>XCyberForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\Computer.cs" />
     <Compile Include="Entities\Context.cs" />

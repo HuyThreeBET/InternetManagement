@@ -72,6 +72,30 @@
     </Compile>
     <Compile Include="Duy%27sForm\XCyberForm.Designer.cs">
       <DependentUpon>XCyberForm.cs</DependentUpon>
+	</Compile>
+    <Compile Include="Bin%27sForm\CustomerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bin%27sForm\CustomerFrm.Designer.cs">
+      <DependentUpon>CustomerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bin%27sForm\LoggingInCustomerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bin%27sForm\LoggingInCustomerFrm.Designer.cs">
+      <DependentUpon>LoggingInCustomerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bin%27sForm\LoggingInStaffFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bin%27sForm\LoggingInStaffFrm.Designer.cs">
+      <DependentUpon>LoggingInStaffFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bin%27sForm\StaffFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bin%27sForm\StaffFrm.Designer.cs">
+      <DependentUpon>StaffFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\Computer.cs" />

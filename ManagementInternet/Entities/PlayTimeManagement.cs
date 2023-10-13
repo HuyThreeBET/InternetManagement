@@ -17,9 +17,9 @@ namespace ManagementInternet.Entities
 
         public int Id { get; set; }
 
-        public int IdOfUser { get; set; }
+        public short IdOfUser { get; set; }
 
-        public int IdOfComputer { get; set; }
+        public short IdOfComputer { get; set; }
 
         public DateTime StartTime { get; set; }
 

@@ -40,26 +40,5 @@ namespace ManagementInternet.Duy_sForm
             if (!(e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)8))
                 e.Handled = true;
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtPhoneNumber.Text) || string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(txtId.Text))
-            {
-                MessageBox.Show("Bạn chưa nhập đầy đủ thông tin");
-            }
-            else if (!string.IsNullOrEmpty(txtName.Text) || !string.IsNullOrEmpty(txtPassword.Text) || !string.IsNullOrEmpty(txtPhoneNumber.Text) || !string.IsNullOrEmpty(txtUser.Text) || !string.IsNullOrEmpty(txtId.Text) == true)
-            {
-                MessageBox.Show("Đăng ký thành công!" + "\nThời gian đăng ký: " + dtpInnitiatedDate.Value.ToShortDateString());
-            }
-            SetDefault();
-
-        }
-
-        private void SetDefault()
-        {
-            txtId.Text = txtName.Text = txtPassword.Text = txtPhoneNumber.Text = txtRecharge.Text = txtUser.Text = string.Empty;
-            dtpDateOfBirth.Value = DateTime.Now;
-            rbMale.Checked = true;
-        }
     }
 }

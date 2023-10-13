@@ -16,7 +16,7 @@ namespace ManagementInternet.Entities
             PlayTimeManagements = new HashSet<PlayTimeManagement>();
         }
 
-        public int Id { get; set; }
+        public short Id { get; set; }
 
         public bool State { get; set; }
 

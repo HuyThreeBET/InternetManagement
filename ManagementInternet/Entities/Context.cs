@@ -8,7 +8,7 @@ namespace ManagementInternet.Entities
     public partial class Context : DbContext
     {
         public Context()
-            : base("name=Context")
+            : base("name=ManagementContextDB")
         {
         }
 
@@ -17,6 +17,7 @@ namespace ManagementInternet.Entities
         public virtual DbSet<Dish> Dishes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<PlayTimeManagement> PlayTimeManagements { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -61,6 +62,11 @@ namespace ManagementInternet.Entities
                 .HasMany(e => e.Orders)
                 .WithMany(e => e.PlayTimeManagements)
                 .Map(m => m.ToTable("OrderList").MapLeftKey("Id").MapRightKey("IdOfOrder"));
+
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Accounts)
+                .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Balance)

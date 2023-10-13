@@ -6,24 +6,23 @@ namespace ManagementInternet.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("User")]
-    public partial class User
+    [Table("Role")]
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Role()
         {
-            PlayTimeManagements = new HashSet<PlayTimeManagement>();
+            Accounts = new HashSet<Account>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public short IdOfUser { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public byte Id { get; set; }
 
-        public decimal Balance { get; set; }
-
-        public virtual Account Account { get; set; }
+        [Required]
+        [StringLength(1)]
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PlayTimeManagement> PlayTimeManagements { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

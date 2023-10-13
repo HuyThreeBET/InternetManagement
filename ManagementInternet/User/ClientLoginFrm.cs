@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ManagementInternet.Bin_sForm
 {
-    public partial class LoggingInCustomerFrm : Form
+    public partial class ClientLoginFrm : Form
     {
-        public LoggingInCustomerFrm()
+        public ClientLoginFrm()
         {
             InitializeComponent();
         }

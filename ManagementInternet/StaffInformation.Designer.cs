@@ -96,7 +96,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(126, 261);
+            this.txtName.Location = new System.Drawing.Point(126, 256);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(192, 22);
             this.txtName.TabIndex = 17;
@@ -104,7 +104,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(126, 196);
+            this.txtID.Location = new System.Drawing.Point(131, 145);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(192, 22);
             this.txtID.TabIndex = 16;
@@ -133,7 +133,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 204);
+            this.label1.Location = new System.Drawing.Point(23, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 19);
             this.label1.TabIndex = 13;
@@ -167,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(907, 450);
             this.Controls.Add(this.dgvStaffInformation);
             this.Controls.Add(this.txtState);
             this.Controls.Add(this.txtName);

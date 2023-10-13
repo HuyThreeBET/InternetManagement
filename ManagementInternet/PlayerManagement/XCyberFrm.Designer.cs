@@ -1,6 +1,6 @@
 ﻿namespace ManagementInternet.Duy_sForm
 {
-    partial class XCyberForm
+    partial class XCyberFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,51 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripHeader = new System.Windows.Forms.MenuStrip();
             this.chucNangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyNhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmHộiViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chuyểnNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thayĐổiThôngTinNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.heThongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baoCaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripEmployeeRight = new System.Windows.Forms.ToolStrip();
             this.tSbtnAddClient = new System.Windows.Forms.ToolStripButton();
             this.tSbtnChangeStaff = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colNameOfPC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgDisplayStatus = new System.Windows.Forms.DataGridView();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thôngTinKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStripHeader.SuspendLayout();
+            this.toolStripEmployeeRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayStatus)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStripHeader
             // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripHeader.AutoSize = false;
+            this.menuStripHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.menuStripHeader.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuStripHeader.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStripHeader.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStripHeader.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chucNangToolStripMenuItem,
             this.heThongToolStripMenuItem,
             this.baoCaoToolStripMenuItem,
             this.doanhThuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1021, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripHeader.Location = new System.Drawing.Point(0, 0);
+            this.menuStripHeader.Name = "menuStripHeader";
+            this.menuStripHeader.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuStripHeader.Size = new System.Drawing.Size(1021, 28);
+            this.menuStripHeader.TabIndex = 0;
+            this.menuStripHeader.Text = "menuStrip1";
             // 
             // chucNangToolStripMenuItem
             // 
@@ -117,6 +118,12 @@
             this.dịchVụToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.dịchVụToolStripMenuItem.Text = "Dịch vụ";
             // 
+            // thôngTinKháchHàngToolStripMenuItem
+            // 
+            this.thôngTinKháchHàngToolStripMenuItem.Name = "thôngTinKháchHàngToolStripMenuItem";
+            this.thôngTinKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.thôngTinKháchHàngToolStripMenuItem.Text = "Thông tin khách hàng";
+            // 
             // heThongToolStripMenuItem
             // 
             this.heThongToolStripMenuItem.Name = "heThongToolStripMenuItem";
@@ -135,21 +142,22 @@
             this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
             // 
-            // toolStrip1
+            // toolStripEmployeeRight
             // 
-            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.toolStripEmployeeRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripEmployeeRight.AutoSize = false;
+            this.toolStripEmployeeRight.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripEmployeeRight.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStripEmployeeRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tSbtnAddClient,
+            this.toolStripSeparator1,
             this.tSbtnChangeStaff});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1021, 46);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripEmployeeRight.Location = new System.Drawing.Point(0, 28);
+            this.toolStripEmployeeRight.Name = "toolStripEmployeeRight";
+            this.toolStripEmployeeRight.Size = new System.Drawing.Size(1021, 46);
+            this.toolStripEmployeeRight.TabIndex = 1;
+            this.toolStripEmployeeRight.Text = "toolStrip1";
             // 
             // tSbtnAddClient
             // 
@@ -174,35 +182,40 @@
             this.tSbtnChangeStaff.Size = new System.Drawing.Size(180, 50);
             this.tSbtnChangeStaff.Text = "Chuyển nhân viên";
             // 
-            // dataGridView1
+            // dvgDisplayStatus
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dvgDisplayStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNameOfPC,
+            this.dvgDisplayStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dvgDisplayStatus.BackgroundColor = System.Drawing.Color.White;
+            this.dvgDisplayStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dvgDisplayStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgDisplayStatus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colName,
             this.colStatus,
             this.colUser,
             this.colStart,
             this.colUsed,
             this.colRemaining,
             this.colGroup});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1021, 659);
-            this.dataGridView1.TabIndex = 2;
+            this.dvgDisplayStatus.Location = new System.Drawing.Point(0, 77);
+            this.dvgDisplayStatus.Name = "dvgDisplayStatus";
+            this.dvgDisplayStatus.RowHeadersWidth = 51;
+            this.dvgDisplayStatus.RowTemplate.Height = 24;
+            this.dvgDisplayStatus.Size = new System.Drawing.Size(1021, 659);
+            this.dvgDisplayStatus.TabIndex = 2;
             // 
-            // colNameOfPC
+            // toolStripSeparator1
             // 
-            this.colNameOfPC.HeaderText = "Tên Máy";
-            this.colNameOfPC.MinimumWidth = 6;
-            this.colNameOfPC.Name = "colNameOfPC";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 46);
+            // 
+            // colName
+            // 
+            this.colName.HeaderText = "Tên Máy";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
             // 
             // colStatus
             // 
@@ -240,60 +253,55 @@
             this.colGroup.MinimumWidth = 6;
             this.colGroup.Name = "colGroup";
             // 
-            // thôngTinKháchHàngToolStripMenuItem
-            // 
-            this.thôngTinKháchHàngToolStripMenuItem.Name = "thôngTinKháchHàngToolStripMenuItem";
-            this.thôngTinKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.thôngTinKháchHàngToolStripMenuItem.Text = "Thông tin khách hàng";
-            // 
-            // FrmXCyber
+            // XCyberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1021, 734);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.dvgDisplayStatus);
+            this.Controls.Add(this.toolStripEmployeeRight);
+            this.Controls.Add(this.menuStripHeader);
             this.ForeColor = System.Drawing.Color.Blue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FrmXCyber";
+            this.MainMenuStrip = this.menuStripHeader;
+            this.Name = "XCyberForm";
             this.Text = "XCyber";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStripHeader.ResumeLayout(false);
+            this.menuStripHeader.PerformLayout();
+            this.toolStripEmployeeRight.ResumeLayout(false);
+            this.toolStripEmployeeRight.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripHeader;
         private System.Windows.Forms.ToolStripMenuItem chucNangToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quanLyNhanVienToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem heThongToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baoCaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripEmployeeRight;
         private System.Windows.Forms.ToolStripButton tSbtnAddClient;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dvgDisplayStatus;
         private System.Windows.Forms.ToolStripButton tSbtnChangeStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNameOfPC;
+        private System.Windows.Forms.ToolStripMenuItem thêmHộiViênToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chuyểnNhânViênToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thayĐổiThôngTinNhânViênToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dịchVụToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thôngTinKháchHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemaining;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGroup;
-        private System.Windows.Forms.ToolStripMenuItem thêmHộiViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chuyểnNhânViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thayĐổiThôngTinNhânViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dịchVụToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinKháchHàngToolStripMenuItem;
     }
 }

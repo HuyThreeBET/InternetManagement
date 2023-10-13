@@ -15,16 +15,16 @@ namespace ManagementInternet.Entities
             PlayTimeManagements = new HashSet<PlayTimeManagement>();
         }
 
-        public int Id { get; set; }
+        public short Id { get; set; }
 
-        public int IdOfComputer { get; set; }
+        public short IdOfComputer { get; set; }
 
         [StringLength(255)]
         public string NameOfDish { get; set; }
 
-        public int Quantity { get; set; }
+        public short Quantity { get; set; }
 
-        public int TotalAmount { get; set; }
+        public short TotalAmount { get; set; }
 
         public DateTime CreateAt { get; set; }
 

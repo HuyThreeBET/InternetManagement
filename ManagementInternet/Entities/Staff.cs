@@ -11,7 +11,7 @@ namespace ManagementInternet.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdOfStaff { get; set; }
+        public short IdOfStaff { get; set; }
 
         [Required]
         [StringLength(255)]

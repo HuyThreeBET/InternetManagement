@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ManagementInternet.Bin_sForm
+namespace ManagementInternet.Duy_sForm
 {
-    public partial class LoggingInStaffFrm : Form
+    public partial class XCyberFrm : Form
     {
-        public LoggingInStaffFrm()
+        public XCyberFrm()
         {
             InitializeComponent();
         }

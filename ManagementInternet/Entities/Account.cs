@@ -9,21 +9,21 @@ namespace ManagementInternet.Entities
     [Table("Account")]
     public partial class Account
     {
-        public int Id { get; set; }
+        public short Id { get; set; }
 
         [Required]
-        [StringLength(1)]
+        [StringLength(55)]
         public string AccountName { get; set; }
 
         [Required]
-        [StringLength(1)]
+        [StringLength(55)]
         public string Passowrd { get; set; }
 
-        [Required]
-        [StringLength(255)]
-        public string Role { get; set; }
+        public byte RoleId { get; set; }
 
         public DateTime CreateAt { get; set; }
+
+        public virtual Role Role { get; set; }
 
         public virtual Staff Staff { get; set; }
 

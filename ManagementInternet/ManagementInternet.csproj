@@ -105,6 +105,18 @@
     <Compile Include="Entities\PlayTimeManagement.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff.Designer.cs">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffInformation.Designer.cs">
+      <DependentUpon>StaffInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="WelcomeFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Staff.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffInformation.resx">
+      <DependentUpon>StaffInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeFrm.resx">
+      <DependentUpon>WelcomeFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

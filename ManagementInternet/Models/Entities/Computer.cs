@@ -16,15 +16,14 @@ namespace ManagementInternet.Models.Entities
             PlayTimeManagements = new HashSet<PlayTimeManagement>();
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public short Id { get; set; }
 
-        public short Name { get; set; }
-
-        public short? TypeOfComputer { get; set; }
+        public short? ComputerType { get; set; }
 
         public bool State { get; set; }
 
-        public virtual ComputerType ComputerType { get; set; }
+        public virtual ComputerType ComputerType1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

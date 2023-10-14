@@ -10,10 +10,13 @@ namespace InternetShop
             InitializeComponent();
         }
 
-        private void btnOpenStaffForm_Click(object sender, System.EventArgs e)
+        private void btnOpenEmployeeForm_Click(object sender, System.EventArgs e)
         {
-            Staff staff = new Staff();
-            staff.ShowDialog();
+            CyberManagementFrm cyberManagementFrm = new CyberManagementFrm();
+         
+            cyberManagementFrm.Show();
+
+            this.Hide();
         }
     }
 }

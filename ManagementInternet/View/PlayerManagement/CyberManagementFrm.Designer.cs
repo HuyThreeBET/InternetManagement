@@ -1,6 +1,6 @@
 ﻿namespace ManagementInternet
 {
-    partial class CyberManagement
+    partial class CyberManagementFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabAddUser = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gBRecharge = new System.Windows.Forms.GroupBox();
+            this.btnRecharge = new System.Windows.Forms.Button();
+            this.txtAmountOfMoney = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtRAccountName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.gBAddPlayer = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.rbMale = new System.Windows.Forms.RadioButton();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtAccountName = new System.Windows.Forms.TextBox();
+            this.txtIdCard = new System.Windows.Forms.TextBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
+            this.rbMale = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +60,8 @@
             this.colUsed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPlayerAccount = new System.Windows.Forms.TabPage();
+            this.dgvPlayerManagement = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStripHeader = new System.Windows.Forms.MenuStrip();
             this.chucNangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,18 +74,29 @@
             this.heThongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baoCaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tabAddUser.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gBRecharge.SuspendLayout();
+            this.gBAddPlayer.SuspendLayout();
             this.tabConputerStatusManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayStatus)).BeginInit();
+            this.tabPlayerAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlayerManagement)).BeginInit();
             this.menuStripHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
             // 
             this.tabMain.Controls.Add(this.tabAddUser);
             this.tabMain.Controls.Add(this.tabConputerStatusManagement);
+            this.tabMain.Controls.Add(this.tabPlayerAccount);
             this.tabMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabMain.Location = new System.Drawing.Point(12, 28);
             this.tabMain.Name = "tabMain";
@@ -83,86 +106,174 @@
             // 
             // tabAddUser
             // 
-            this.tabAddUser.Controls.Add(this.groupBox1);
+            this.tabAddUser.BackColor = System.Drawing.Color.DarkGray;
+            this.tabAddUser.Controls.Add(this.gBRecharge);
+            this.tabAddUser.Controls.Add(this.gBAddPlayer);
             this.tabAddUser.Location = new System.Drawing.Point(4, 27);
             this.tabAddUser.Name = "tabAddUser";
             this.tabAddUser.Padding = new System.Windows.Forms.Padding(3);
             this.tabAddUser.Size = new System.Drawing.Size(985, 501);
             this.tabAddUser.TabIndex = 0;
             this.tabAddUser.Text = "Thêm hội viên";
-            this.tabAddUser.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gBRecharge
             // 
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.rbMale);
-            this.groupBox1.Controls.Add(this.rbFemale);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 296);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tài khoản";
+            this.gBRecharge.Controls.Add(this.btnRecharge);
+            this.gBRecharge.Controls.Add(this.txtAmountOfMoney);
+            this.gBRecharge.Controls.Add(this.label7);
+            this.gBRecharge.Controls.Add(this.txtRAccountName);
+            this.gBRecharge.Controls.Add(this.label6);
+            this.gBRecharge.Controls.Add(this.btnSearch);
+            this.gBRecharge.Controls.Add(this.txtSearch);
+            this.gBRecharge.Controls.Add(this.label5);
+            this.gBRecharge.Location = new System.Drawing.Point(379, 6);
+            this.gBRecharge.Name = "gBRecharge";
+            this.gBRecharge.Size = new System.Drawing.Size(600, 311);
+            this.gBRecharge.TabIndex = 1;
+            this.gBRecharge.TabStop = false;
+            this.gBRecharge.Text = "Nạp tiền";
+            // 
+            // btnRecharge
+            // 
+            this.btnRecharge.Location = new System.Drawing.Point(417, 262);
+            this.btnRecharge.Name = "btnRecharge";
+            this.btnRecharge.Size = new System.Drawing.Size(96, 34);
+            this.btnRecharge.TabIndex = 15;
+            this.btnRecharge.Text = "Nạp";
+            this.btnRecharge.UseVisualStyleBackColor = true;
+            // 
+            // txtAmountOfMoney
+            // 
+            this.txtAmountOfMoney.Enabled = false;
+            this.txtAmountOfMoney.Location = new System.Drawing.Point(293, 208);
+            this.txtAmountOfMoney.Name = "txtAmountOfMoney";
+            this.txtAmountOfMoney.Size = new System.Drawing.Size(220, 24);
+            this.txtAmountOfMoney.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(94, 214);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 18);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Tiền nạp";
+            // 
+            // txtRAccountName
+            // 
+            this.txtRAccountName.Enabled = false;
+            this.txtRAccountName.Location = new System.Drawing.Point(293, 149);
+            this.txtRAccountName.Name = "txtRAccountName";
+            this.txtRAccountName.ReadOnly = true;
+            this.txtRAccountName.Size = new System.Drawing.Size(220, 24);
+            this.txtRAccountName.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(94, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 18);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Tên tài khoản";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(417, 81);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(96, 34);
+            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(293, 40);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(220, 24);
+            this.txtSearch.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(94, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(141, 18);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Tìm kiếm người chơi";
+            // 
+            // gBAddPlayer
+            // 
+            this.gBAddPlayer.Controls.Add(this.btnAdd);
+            this.gBAddPlayer.Controls.Add(this.txtPassword);
+            this.gBAddPlayer.Controls.Add(this.txtAccountName);
+            this.gBAddPlayer.Controls.Add(this.txtIdCard);
+            this.gBAddPlayer.Controls.Add(this.rbFemale);
+            this.gBAddPlayer.Controls.Add(this.rbMale);
+            this.gBAddPlayer.Controls.Add(this.label4);
+            this.gBAddPlayer.Controls.Add(this.label3);
+            this.gBAddPlayer.Controls.Add(this.label2);
+            this.gBAddPlayer.Controls.Add(this.label1);
+            this.gBAddPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBAddPlayer.Location = new System.Drawing.Point(6, 6);
+            this.gBAddPlayer.Name = "gBAddPlayer";
+            this.gBAddPlayer.Size = new System.Drawing.Size(367, 311);
+            this.gBAddPlayer.TabIndex = 0;
+            this.gBAddPlayer.TabStop = false;
+            this.gBAddPlayer.Text = "Tài khoản";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(253, 256);
+            this.btnAdd.Location = new System.Drawing.Point(253, 262);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(96, 23);
+            this.btnAdd.Size = new System.Drawing.Size(96, 34);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // textBox3
+            // txtPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(138, 206);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(211, 24);
-            this.textBox3.TabIndex = 8;
+            this.txtPassword.Location = new System.Drawing.Point(138, 206);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(211, 24);
+            this.txtPassword.TabIndex = 8;
             // 
-            // textBox2
+            // txtAccountName
             // 
-            this.textBox2.Location = new System.Drawing.Point(138, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(211, 24);
-            this.textBox2.TabIndex = 7;
+            this.txtAccountName.Location = new System.Drawing.Point(138, 101);
+            this.txtAccountName.Name = "txtAccountName";
+            this.txtAccountName.Size = new System.Drawing.Size(211, 24);
+            this.txtAccountName.TabIndex = 7;
             // 
-            // textBox1
+            // txtIdCard
             // 
-            this.textBox1.Location = new System.Drawing.Point(138, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 24);
-            this.textBox1.TabIndex = 6;
-            // 
-            // rbMale
-            // 
-            this.rbMale.AutoSize = true;
-            this.rbMale.Location = new System.Drawing.Point(301, 153);
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(48, 22);
-            this.rbMale.TabIndex = 5;
-            this.rbMale.TabStop = true;
-            this.rbMale.Text = "Nữ";
-            this.rbMale.UseVisualStyleBackColor = true;
+            this.txtIdCard.Location = new System.Drawing.Point(138, 40);
+            this.txtIdCard.Name = "txtIdCard";
+            this.txtIdCard.Size = new System.Drawing.Size(211, 24);
+            this.txtIdCard.TabIndex = 6;
             // 
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
-            this.rbFemale.Location = new System.Drawing.Point(184, 153);
+            this.rbFemale.Location = new System.Drawing.Point(301, 153);
             this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(61, 22);
-            this.rbFemale.TabIndex = 4;
-            this.rbFemale.TabStop = true;
-            this.rbFemale.Text = "Nam";
+            this.rbFemale.Size = new System.Drawing.Size(48, 22);
+            this.rbFemale.TabIndex = 5;
+            this.rbFemale.Text = "Nữ";
             this.rbFemale.UseVisualStyleBackColor = true;
+            // 
+            // rbMale
+            // 
+            this.rbMale.AutoSize = true;
+            this.rbMale.Checked = true;
+            this.rbMale.Location = new System.Drawing.Point(184, 153);
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Size = new System.Drawing.Size(61, 22);
+            this.rbMale.TabIndex = 4;
+            this.rbMale.TabStop = true;
+            this.rbMale.Text = "Nam";
+            this.rbMale.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -277,6 +388,34 @@
             this.colGroup.MinimumWidth = 6;
             this.colGroup.Name = "colGroup";
             // 
+            // tabPlayerAccount
+            // 
+            this.tabPlayerAccount.Controls.Add(this.dgvPlayerManagement);
+            this.tabPlayerAccount.Location = new System.Drawing.Point(4, 27);
+            this.tabPlayerAccount.Name = "tabPlayerAccount";
+            this.tabPlayerAccount.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlayerAccount.Size = new System.Drawing.Size(985, 501);
+            this.tabPlayerAccount.TabIndex = 2;
+            this.tabPlayerAccount.Text = "Tài khoản người chơi";
+            this.tabPlayerAccount.UseVisualStyleBackColor = true;
+            // 
+            // dgvPlayerManagement
+            // 
+            this.dgvPlayerManagement.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPlayerManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlayerManagement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colAccountName,
+            this.colSex,
+            this.colBalance,
+            this.colCreatedAt});
+            this.dgvPlayerManagement.Location = new System.Drawing.Point(6, 6);
+            this.dgvPlayerManagement.Name = "dgvPlayerManagement";
+            this.dgvPlayerManagement.RowHeadersWidth = 51;
+            this.dgvPlayerManagement.RowTemplate.Height = 24;
+            this.dgvPlayerManagement.Size = new System.Drawing.Size(976, 489);
+            this.dgvPlayerManagement.TabIndex = 0;
+            // 
             // menuStripHeader
             // 
             this.menuStripHeader.AutoSize = false;
@@ -292,7 +431,7 @@
             this.menuStripHeader.Location = new System.Drawing.Point(0, 0);
             this.menuStripHeader.Name = "menuStripHeader";
             this.menuStripHeader.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStripHeader.Size = new System.Drawing.Size(1012, 28);
+            this.menuStripHeader.Size = new System.Drawing.Size(1029, 28);
             this.menuStripHeader.TabIndex = 1;
             this.menuStripHeader.Text = "menuStrip1";
             // 
@@ -363,23 +502,68 @@
             this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
             // 
-            // CyberManagement
+            // error
+            // 
+            this.error.ContainerControl = this;
+            // 
+            // colId
+            // 
+            this.colId.HeaderText = "Mã căn cước";
+            this.colId.MinimumWidth = 6;
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            // 
+            // colAccountName
+            // 
+            this.colAccountName.HeaderText = "Tên tài khoản";
+            this.colAccountName.MinimumWidth = 6;
+            this.colAccountName.Name = "colAccountName";
+            this.colAccountName.ReadOnly = true;
+            // 
+            // colSex
+            // 
+            this.colSex.HeaderText = "Giới tính";
+            this.colSex.MinimumWidth = 6;
+            this.colSex.Name = "colSex";
+            this.colSex.ReadOnly = true;
+            // 
+            // colBalance
+            // 
+            this.colBalance.HeaderText = "Số dư";
+            this.colBalance.MinimumWidth = 6;
+            this.colBalance.Name = "colBalance";
+            this.colBalance.ReadOnly = true;
+            // 
+            // colCreatedAt
+            // 
+            this.colCreatedAt.HeaderText = "Tạo vào lúc";
+            this.colCreatedAt.MinimumWidth = 6;
+            this.colCreatedAt.Name = "colCreatedAt";
+            this.colCreatedAt.ReadOnly = true;
+            // 
+            // CyberManagementFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 575);
+            this.ClientSize = new System.Drawing.Size(1029, 575);
             this.Controls.Add(this.menuStripHeader);
             this.Controls.Add(this.tabMain);
-            this.Name = "CyberManagement";
+            this.Name = "CyberManagementFrm";
             this.Text = "CyberManagement";
+            this.Load += new System.EventHandler(this.CyberManagementFrm_Load);
             this.tabMain.ResumeLayout(false);
             this.tabAddUser.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gBRecharge.ResumeLayout(false);
+            this.gBRecharge.PerformLayout();
+            this.gBAddPlayer.ResumeLayout(false);
+            this.gBAddPlayer.PerformLayout();
             this.tabConputerStatusManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayStatus)).EndInit();
+            this.tabPlayerAccount.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlayerManagement)).EndInit();
             this.menuStripHeader.ResumeLayout(false);
             this.menuStripHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,17 +573,17 @@
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabAddUser;
         private System.Windows.Forms.TabPage tabConputerStatusManagement;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gBAddPlayer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton rbMale;
+        private System.Windows.Forms.TextBox txtIdCard;
         private System.Windows.Forms.RadioButton rbFemale;
+        private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtAccountName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView dvgDisplayStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
@@ -420,5 +604,22 @@
         private System.Windows.Forms.ToolStripMenuItem heThongToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baoCaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.GroupBox gBRecharge;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtAmountOfMoney;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtRAccountName;
+        private System.Windows.Forms.Button btnRecharge;
+        private System.Windows.Forms.TabPage tabPlayerAccount;
+        private System.Windows.Forms.DataGridView dgvPlayerManagement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAccountName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedAt;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ManagementInternet.Duy_sForm
+﻿namespace ManagementInternet.PlayerManagement
 {
     partial class ChangingEmployeeFrm
     {

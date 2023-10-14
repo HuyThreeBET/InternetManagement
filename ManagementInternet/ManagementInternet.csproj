@@ -32,6 +32,56 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x64|AnyCPU'">
+    <OutputPath>bin\x64\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x64|ARM64'">
+    <OutputPath>bin\ARM64\x64\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x64|x64'">
+    <OutputPath>bin\x64\x64\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -55,34 +105,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\IRepositoryBase.cs" />
-    <Compile Include="Controller\RepositoryImplement\AccountRepo.cs" />
+    <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Models\Entities\Account.cs" />
     <Compile Include="Models\Entities\Computer.cs" />
-    <Compile Include="Models\Entities\Context.cs" />
+    <Compile Include="Models\Entities\ComputerType.cs" />
     <Compile Include="Models\Entities\Dish.cs" />
+    <Compile Include="Models\Entities\InternetManagementContextDB.cs" />
     <Compile Include="Models\Entities\Order.cs" />
     <Compile Include="Models\Entities\PlayTimeManagement.cs" />
     <Compile Include="Models\Entities\Role.cs" />
     <Compile Include="Models\Entities\Staff.cs" />
     <Compile Include="Models\Entities\User.cs" />
-    <Compile Include="View\PlayerManagement\AddingClientFrm.cs">
+    <Compile Include="View\PlayerManagement\CyberManagementFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\PlayerManagement\AddingClientFrm.Designer.cs">
-      <DependentUpon>AddingClientFrm.cs</DependentUpon>
+    <Compile Include="View\PlayerManagement\CyberManagementFrm.Designer.cs">
+      <DependentUpon>CyberManagementFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PlayerManagement\ChangingEmployeeFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\PlayerManagement\ChangingEmployeeFrm.Designer.cs">
       <DependentUpon>ChangingEmployeeFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\PlayerManagement\XCyberFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\PlayerManagement\XCyberFrm.Designer.cs">
-      <DependentUpon>XCyberFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\User\ClientLoginFrm.cs">
       <SubType>Form</SubType>
@@ -104,17 +149,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\PlayerManagement\CyberManagementFrm.resx">
+      <DependentUpon>CyberManagementFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\User\ClientLoginFrm.resx">
       <DependentUpon>ClientLoginFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\PlayerManagement\AddingClientFrm.resx">
-      <DependentUpon>AddingClientFrm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\PlayerManagement\ChangingEmployeeFrm.resx">
       <DependentUpon>ChangingEmployeeFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\PlayerManagement\XCyberFrm.resx">
-      <DependentUpon>XCyberFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,9 +187,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="AddtionalFiles\Sql.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

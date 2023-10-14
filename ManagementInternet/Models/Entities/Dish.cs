@@ -19,7 +19,7 @@ namespace ManagementInternet.Models.Entities
         [StringLength(255)]
         public string Name { get; set; }
 
-        public decimal Price { get; set; }
+        public short Price { get; set; }
 
         [Column(TypeName = "image")]
         [Required]

@@ -25,7 +25,7 @@ namespace ManagementInternet.Models.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>()
-                .Property(e => e.IdCard)
+                .Property(e => e.Id)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -60,22 +60,19 @@ namespace ManagementInternet.Models.Entities
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ComputerType>()
-                .Property(e => e.Price)
-                .HasPrecision(10, 3);
-
-            modelBuilder.Entity<ComputerType>()
                 .HasMany(e => e.Computers)
-                .WithOptional(e => e.ComputerType)
-                .HasForeignKey(e => e.TypeOfComputer);
-
-            modelBuilder.Entity<Dish>()
-                .Property(e => e.Price)
-                .HasPrecision(9, 3);
+                .WithOptional(e => e.ComputerType1)
+                .HasForeignKey(e => e.ComputerType);
 
             modelBuilder.Entity<Dish>()
                 .HasMany(e => e.Orders)
                 .WithOptional(e => e.Dish)
                 .HasForeignKey(e => e.NameOfDish);
+
+            modelBuilder.Entity<PlayTimeManagement>()
+                .Property(e => e.IdOfUser)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<PlayTimeManagement>()
                 .HasMany(e => e.Orders)
@@ -87,6 +84,16 @@ namespace ManagementInternet.Models.Entities
                 .WithRequired(e => e.Role)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Staff>()
+                .Property(e => e.Id)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Id)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<User>()
                 .Property(e => e.Balance)
                 .HasPrecision(10, 3);
@@ -94,6 +101,7 @@ namespace ManagementInternet.Models.Entities
             modelBuilder.Entity<User>()
                 .HasMany(e => e.PlayTimeManagements)
                 .WithRequired(e => e.User)
+                .HasForeignKey(e => e.IdOfUser)
                 .WillCascadeOnDelete(false);
         }
     }

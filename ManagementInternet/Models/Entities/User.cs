@@ -15,9 +15,8 @@ namespace ManagementInternet.Models.Entities
             PlayTimeManagements = new HashSet<PlayTimeManagement>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public short IdOfUser { get; set; }
+        [StringLength(22)]
+        public string Id { get; set; }
 
         public decimal Balance { get; set; }
 

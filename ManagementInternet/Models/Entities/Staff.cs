@@ -9,9 +9,8 @@ namespace ManagementInternet.Models.Entities
     [Table("Staff")]
     public partial class Staff
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public short IdOfStaff { get; set; }
+        [StringLength(22)]
+        public string Id { get; set; }
 
         [Required]
         [StringLength(255)]

@@ -9,11 +9,8 @@ namespace ManagementInternet.Models.Entities
     [Table("Account")]
     public partial class Account
     {
-        public short Id { get; set; }
-
-        [Required]
         [StringLength(22)]
-        public string IdCard { get; set; }
+        public string Id { get; set; }
 
         [Required]
         [StringLength(55)]

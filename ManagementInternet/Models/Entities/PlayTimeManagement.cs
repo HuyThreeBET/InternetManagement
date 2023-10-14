@@ -17,7 +17,9 @@ namespace ManagementInternet.Models.Entities
 
         public int Id { get; set; }
 
-        public short IdOfUser { get; set; }
+        [Required]
+        [StringLength(22)]
+        public string IdOfUser { get; set; }
 
         public short IdOfComputer { get; set; }
 

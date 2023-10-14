@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnOpenMangerForm = new System.Windows.Forms.Button();
-            this.btnOpenStaffForm = new System.Windows.Forms.Button();
+            this.btnOpenEmployeeForm = new System.Windows.Forms.Button();
             this.btnOpenClientForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -39,7 +39,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnOpenMangerForm);
-            this.panel1.Controls.Add(this.btnOpenStaffForm);
+            this.panel1.Controls.Add(this.btnOpenEmployeeForm);
             this.panel1.Controls.Add(this.btnOpenClientForm);
             this.panel1.Location = new System.Drawing.Point(141, 172);
             this.panel1.Name = "panel1";
@@ -56,16 +56,16 @@
             this.btnOpenMangerForm.Text = "Quản lí";
             this.btnOpenMangerForm.UseVisualStyleBackColor = true;
             // 
-            // btnOpenStaffForm
+            // btnOpenEmployeeForm
             // 
-            this.btnOpenStaffForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenStaffForm.Location = new System.Drawing.Point(203, 23);
-            this.btnOpenStaffForm.Name = "btnOpenStaffForm";
-            this.btnOpenStaffForm.Size = new System.Drawing.Size(138, 41);
-            this.btnOpenStaffForm.TabIndex = 1;
-            this.btnOpenStaffForm.Text = "Nhân viên";
-            this.btnOpenStaffForm.UseVisualStyleBackColor = true;
-            this.btnOpenStaffForm.Click += new System.EventHandler(this.btnOpenStaffForm_Click);
+            this.btnOpenEmployeeForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenEmployeeForm.Location = new System.Drawing.Point(203, 23);
+            this.btnOpenEmployeeForm.Name = "btnOpenEmployeeForm";
+            this.btnOpenEmployeeForm.Size = new System.Drawing.Size(138, 41);
+            this.btnOpenEmployeeForm.TabIndex = 1;
+            this.btnOpenEmployeeForm.Text = "Nhân viên";
+            this.btnOpenEmployeeForm.UseVisualStyleBackColor = true;
+            this.btnOpenEmployeeForm.Click += new System.EventHandler(this.btnOpenEmployeeForm_Click);
             // 
             // btnOpenClientForm
             // 
@@ -107,7 +107,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnOpenMangerForm;
-        private System.Windows.Forms.Button btnOpenStaffForm;
+        private System.Windows.Forms.Button btnOpenEmployeeForm;
         private System.Windows.Forms.Button btnOpenClientForm;
         private System.Windows.Forms.Label label1;
     }

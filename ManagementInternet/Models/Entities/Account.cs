@@ -1,4 +1,4 @@
-namespace ManagementInternet.Entities
+namespace ManagementInternet.Models.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -12,12 +12,18 @@ namespace ManagementInternet.Entities
         public short Id { get; set; }
 
         [Required]
+        [StringLength(22)]
+        public string IdCard { get; set; }
+
+        [Required]
         [StringLength(55)]
         public string AccountName { get; set; }
 
         [Required]
         [StringLength(55)]
         public string Passowrd { get; set; }
+
+        public bool Sex { get; set; }
 
         public byte RoleId { get; set; }
 

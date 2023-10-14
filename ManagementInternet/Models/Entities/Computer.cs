@@ -1,4 +1,4 @@
-namespace ManagementInternet.Entities
+namespace ManagementInternet.Models.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +18,13 @@ namespace ManagementInternet.Entities
 
         public short Id { get; set; }
 
+        public short Name { get; set; }
+
+        public short? TypeOfComputer { get; set; }
+
         public bool State { get; set; }
+
+        public virtual ComputerType ComputerType { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

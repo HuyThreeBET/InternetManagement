@@ -1,4 +1,4 @@
-namespace ManagementInternet.Entities
+namespace ManagementInternet.Models.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace ManagementInternet.Entities
         [StringLength(255)]
         public string Name { get; set; }
 
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         [Column(TypeName = "image")]
         [Required]

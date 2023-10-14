@@ -1,4 +1,4 @@
-namespace ManagementInternet.Entities
+namespace ManagementInternet.Models.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -16,6 +16,8 @@ namespace ManagementInternet.Entities
         [Required]
         [StringLength(255)]
         public string FullName { get; set; }
+
+        public DateTime DayOfBirth { get; set; }
 
         public bool State { get; set; }
 

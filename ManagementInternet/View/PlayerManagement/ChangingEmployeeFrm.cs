@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ManagementInternet.Duy_sForm
 {
-    public partial class ChangingStaffFrm : Form
+    public partial class ChangingEmployeeFrm : Form
     {
-        public ChangingStaffFrm()
+        public ChangingEmployeeFrm()
         {
             InitializeComponent();
         }

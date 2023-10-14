@@ -1,6 +1,6 @@
 ﻿namespace ManagementInternet.Duy_sForm
 {
-    partial class ChangingStaffFrm
+    partial class ChangingEmployeeFrm
     {
         /// <summary>
         /// Required designer variable.

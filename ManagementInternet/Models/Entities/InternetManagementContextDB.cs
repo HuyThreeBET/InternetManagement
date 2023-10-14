@@ -3,17 +3,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace ManagementInternet.Entities
+namespace ManagementInternet.Models.Entities
 {
-    public partial class Context : DbContext
+    public partial class InternetManagementContextDB : DbContext
     {
-        public Context()
-            : base("name=ManagementContextDB")
+        public InternetManagementContextDB()
+            : base("name=InternetManagementContextDB")
         {
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Computer> Computers { get; set; }
+        public virtual DbSet<ComputerType> ComputerTypes { get; set; }
         public virtual DbSet<Dish> Dishes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<PlayTimeManagement> PlayTimeManagements { get; set; }
@@ -23,6 +24,11 @@ namespace ManagementInternet.Entities
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Account>()
+                .Property(e => e.IdCard)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<Account>()
                 .Property(e => e.AccountName)
                 .IsFixedLength()
@@ -53,6 +59,19 @@ namespace ManagementInternet.Entities
                 .HasForeignKey(e => e.IdOfComputer)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<ComputerType>()
+                .Property(e => e.Price)
+                .HasPrecision(10, 3);
+
+            modelBuilder.Entity<ComputerType>()
+                .HasMany(e => e.Computers)
+                .WithOptional(e => e.ComputerType)
+                .HasForeignKey(e => e.TypeOfComputer);
+
+            modelBuilder.Entity<Dish>()
+                .Property(e => e.Price)
+                .HasPrecision(9, 3);
+
             modelBuilder.Entity<Dish>()
                 .HasMany(e => e.Orders)
                 .WithOptional(e => e.Dish)
@@ -70,7 +89,7 @@ namespace ManagementInternet.Entities
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Balance)
-                .HasPrecision(9, 3);
+                .HasPrecision(10, 3);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.PlayTimeManagements)

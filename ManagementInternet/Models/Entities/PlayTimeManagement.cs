@@ -1,4 +1,4 @@
-namespace ManagementInternet.Entities
+namespace ManagementInternet.Models.Entities
 {
     using System;
     using System.Collections.Generic;

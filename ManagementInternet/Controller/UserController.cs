@@ -1,22 +1,23 @@
 ﻿using ManagementInternet.Models.Entities;
 using System.Data.Entity.Migrations;
-
+using System.Linq;
 
 namespace ManagementInternet.Controller
 {
     internal class UserController
     {
-        private readonly InternetManagementContextDB context;
-
-        public UserController()
-        {
-            this.context = new InternetManagementContextDB();
-        }
-
         public void modify(User obj)
         {
-            this.context.Users.AddOrUpdate(obj);
-            this.context.SaveChanges();
+            InternetManagementContextDB context = new InternetManagementContextDB();
+            context.Users.AddOrUpdate(obj);
+            context.SaveChanges();
+        }
+
+        public User getByAccountname(string accountname)
+        {
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            return context.Users.FirstOrDefault(user => user.Account.AccountName.Equals(accountname));
         }
     }
 }

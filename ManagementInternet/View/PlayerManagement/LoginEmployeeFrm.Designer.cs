@@ -1,6 +1,6 @@
 ﻿namespace ManagementInternet.PlayerManagement
 {
-    partial class ChangingEmployeeFrm
+    partial class LoginEmployeeFrm
     {
         /// <summary>
         /// Required designer variable.

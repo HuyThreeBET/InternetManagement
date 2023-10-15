@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ManagementInternet.PlayerManagement
 {
-    public partial class ChangingEmployeeFrm : Form
+    public partial class LoginEmployeeFrm : Form
     {
-        public ChangingEmployeeFrm()
+        public LoginEmployeeFrm()
         {
             InitializeComponent();
         }

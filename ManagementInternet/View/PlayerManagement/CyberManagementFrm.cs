@@ -1,5 +1,6 @@
 ﻿using ManagementInternet.Controller;
 using ManagementInternet.Models.Entities;
+using ManagementInternet.View.PlayerManagement;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -19,8 +20,10 @@ namespace ManagementInternet
             InitializeComponent();
         }
 
-        private void getDataIntoDgv()
+        public void getDataIntoDgv()
         {
+            this.dgvPlayerManagement.Rows.Clear();
+
             List<Account> accounts = this.accountController.getAllUser();
 
             foreach (Account account in accounts)
@@ -48,88 +51,10 @@ namespace ManagementInternet
             getDataIntoDgv();
         }
 
-        private void setDefaultText()
+        private void toolStripMenuItemAddPlayer_Click(object sender, EventArgs e)
         {
-            this.txtIdCard.Text = string.Empty;
-            this.txtAccountName.Text = string.Empty;
-            this.rbMale.Checked = true;
-            this.txtPassword.Text = string.Empty;
-        }
-
-        private bool checkInfo()
-        {
-            this.error.Clear();
-
-            if (string.IsNullOrEmpty(this.txtIdCard.Text))
-            {
-                this.error.SetError(this.txtIdCard, "*");
-                return false;
-            }
-
-            if (this.accountController.getById(this.txtIdCard.Text))
-            {
-                this.error.SetError(this.txtIdCard, "*");
-                MessageBox.Show("Trùng căn cước công dân");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.txtAccountName.Text))
-            {
-                this.error.SetError(this.txtAccountName, "*");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.txtPassword.Text))
-            {
-                this.error.SetError(this.txtPassword, "*");
-                return false;
-            }
-
-            return true;
-        }
-
-        private void add()
-        {
-            Account account = new Account();
-            User user = new User();
-
-            user.Id = account.Id;
-
-            account.Id = this.txtIdCard.Text;
-            account.AccountName = this.txtAccountName.Text;
-            account.Passowrd = this.txtPassword.Text;
-
-            if (this.rbMale.Checked)
-            {
-                account.Sex = true;
-            }
-            else
-            {
-                account.Sex = false;
-            }
-
-            account.CreateAt = DateTime.Now;
-            account.RoleId = 1;
-
-            user.Id = account.Id;
-
-            this.accountController.modify(account);
-            this.userController.modify(user);
-
-            MessageBox.Show("Thêm hội viên thành công");
-
-            CyberManagementFrm_Load(null, null);
-            setDefaultText();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (checkInfo())
-            {
-                return;
-            }
-
-            add();
+            AddPlayerFrm addPlayerFrm = new AddPlayerFrm(this);
+            addPlayerFrm.ShowDialog();
         }
     }
 }

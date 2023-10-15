@@ -8,34 +8,33 @@ namespace ManagementInternet.Controller
 {
     internal class AccountController
     {
-        private readonly InternetManagementContextDB context;
-
-        public AccountController()
-        {
-            this.context = new InternetManagementContextDB();
-        }
-
         public List<Account> getAll()
         {
-            return this.context.Accounts.ToList();
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            return context.Accounts.ToList();
         }
 
         public List<Account> getAllUser()
         {
-            return this.context.Accounts.Where(account => account.RoleId == 1).ToList();
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            return context.Accounts.Where(account => account.RoleId == 1).ToList();
         }
 
         public bool getById(string id)
         {
-            Account account = this.context.Accounts.FirstOrDefault(ac => ac.Id.Equals(id));
+            InternetManagementContextDB context = new InternetManagementContextDB();
+            Account account = context.Accounts.FirstOrDefault(ac => ac.Id.Equals(id));
 
             return account != null;
         }
 
         public void modify(Account obj)
         {
-            this.context.Accounts.AddOrUpdate(obj);
-            this.context.SaveChanges();
+            InternetManagementContextDB context = new InternetManagementContextDB();
+            context.Accounts.AddOrUpdate(obj);
+            context.SaveChanges();
         }
     }
 }

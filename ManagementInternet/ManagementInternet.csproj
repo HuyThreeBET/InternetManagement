@@ -117,29 +117,29 @@
     <Compile Include="Models\Entities\Role.cs" />
     <Compile Include="Models\Entities\Staff.cs" />
     <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="View\PlayerManagement\AddPlayerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PlayerManagement\AddPlayerFrm.Designer.cs">
+      <DependentUpon>AddPlayerFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PlayerManagement\CyberManagementFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\PlayerManagement\CyberManagementFrm.Designer.cs">
       <DependentUpon>CyberManagementFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\PlayerManagement\ChangingEmployeeFrm.cs">
+    <Compile Include="View\PlayerManagement\LoginEmployeeFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\PlayerManagement\ChangingEmployeeFrm.Designer.cs">
-      <DependentUpon>ChangingEmployeeFrm.cs</DependentUpon>
+    <Compile Include="View\PlayerManagement\LoginEmployeeFrm.Designer.cs">
+      <DependentUpon>LoginEmployeeFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\User\ClientLoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\User\ClientLoginFrm.Designer.cs">
       <DependentUpon>ClientLoginFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StaffInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StaffInformation.Designer.cs">
-      <DependentUpon>StaffInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="WelcomeFrm.cs">
       <SubType>Form</SubType>
@@ -149,14 +149,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\PlayerManagement\AddPlayerFrm.resx">
+      <DependentUpon>AddPlayerFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\PlayerManagement\CyberManagementFrm.resx">
       <DependentUpon>CyberManagementFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\User\ClientLoginFrm.resx">
       <DependentUpon>ClientLoginFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\PlayerManagement\ChangingEmployeeFrm.resx">
-      <DependentUpon>ChangingEmployeeFrm.cs</DependentUpon>
+    <EmbeddedResource Include="View\PlayerManagement\LoginEmployeeFrm.resx">
+      <DependentUpon>LoginEmployeeFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,9 +170,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StaffInformation.resx">
-      <DependentUpon>StaffInformation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WelcomeFrm.resx">
       <DependentUpon>WelcomeFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,7 +187,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Util\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="AddtionalFiles\Sql.txt" />
   </ItemGroup>

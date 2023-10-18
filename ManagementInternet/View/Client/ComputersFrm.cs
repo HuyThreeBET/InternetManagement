@@ -10,14 +10,17 @@ namespace ManagementInternet.View.Client
     {
         private ComputerController computerController;
         private List<Computer> computers;
+        private Computer computer;
         private int computerX;
 
         public int ComputerX { get => computerX; set => computerX = value; }
+        public Computer Computer { get => computer; set => computer = value; }
 
         public ComputersFrm()
         {
             this.computerController = new ComputerController();
             this.computers = null;
+            this.Computer = null;
 
             InitializeComponent();
         }
@@ -55,6 +58,7 @@ namespace ManagementInternet.View.Client
             Button computer = sender as Button;
 
             this.computerX = int.Parse(computer.Text.Substring(6));
+            this.Computer = this.computerController.getById(computerX);
 
             loginEmployeeFrm.Show();
         }

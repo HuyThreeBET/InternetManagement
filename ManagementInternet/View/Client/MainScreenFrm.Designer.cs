@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gBInfo = new System.Windows.Forms.GroupBox();
+            this.txtTotalTime = new System.Windows.Forms.TextBox();
             this.txtCostService = new System.Windows.Forms.TextBox();
             this.txtCostPlayTime = new System.Windows.Forms.TextBox();
             this.txtRemainTime = new System.Windows.Forms.TextBox();
@@ -43,10 +44,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtTotalTime = new System.Windows.Forms.TextBox();
             this.gBInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -71,8 +71,18 @@
             this.gBInfo.TabIndex = 0;
             this.gBInfo.TabStop = false;
             // 
+            // txtTotalTime
+            // 
+            this.txtTotalTime.Enabled = false;
+            this.txtTotalTime.Location = new System.Drawing.Point(197, 41);
+            this.txtTotalTime.Name = "txtTotalTime";
+            this.txtTotalTime.ReadOnly = true;
+            this.txtTotalTime.Size = new System.Drawing.Size(153, 24);
+            this.txtTotalTime.TabIndex = 10;
+            // 
             // txtCostService
             // 
+            this.txtCostService.Enabled = false;
             this.txtCostService.Location = new System.Drawing.Point(197, 274);
             this.txtCostService.Name = "txtCostService";
             this.txtCostService.ReadOnly = true;
@@ -81,6 +91,7 @@
             // 
             // txtCostPlayTime
             // 
+            this.txtCostPlayTime.Enabled = false;
             this.txtCostPlayTime.Location = new System.Drawing.Point(197, 212);
             this.txtCostPlayTime.Name = "txtCostPlayTime";
             this.txtCostPlayTime.ReadOnly = true;
@@ -89,6 +100,7 @@
             // 
             // txtRemainTime
             // 
+            this.txtRemainTime.Enabled = false;
             this.txtRemainTime.Location = new System.Drawing.Point(197, 156);
             this.txtRemainTime.Name = "txtRemainTime";
             this.txtRemainTime.ReadOnly = true;
@@ -97,11 +109,13 @@
             // 
             // txtUsedTime
             // 
+            this.txtUsedTime.Enabled = false;
             this.txtUsedTime.Location = new System.Drawing.Point(197, 97);
             this.txtUsedTime.Name = "txtUsedTime";
             this.txtUsedTime.ReadOnly = true;
             this.txtUsedTime.Size = new System.Drawing.Size(153, 24);
             this.txtUsedTime.TabIndex = 6;
+            this.txtUsedTime.Text = "00:00:00";
             // 
             // label5
             // 
@@ -165,7 +179,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button6, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.button5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnChangePassword, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnLogout, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -204,14 +218,15 @@
             this.btnChangePassword.UseVisualStyleBackColor = true;
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
-            // button3
+            // btnLogout
             // 
-            this.button3.Location = new System.Drawing.Point(269, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 67);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Đăng xuất";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLogout.Location = new System.Drawing.Point(269, 3);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(126, 67);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Đăng xuất";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // button2
             // 
@@ -231,16 +246,6 @@
             this.button1.Text = "Tin nhắn";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // txtTotalTime
-            // 
-            this.txtTotalTime.Enabled = false;
-            this.txtTotalTime.Location = new System.Drawing.Point(197, 41);
-            this.txtTotalTime.Name = "txtTotalTime";
-            this.txtTotalTime.ReadOnly = true;
-            this.txtTotalTime.Size = new System.Drawing.Size(153, 24);
-            this.txtTotalTime.TabIndex = 10;
-            this.txtTotalTime.Text = "00:00:00";
-            // 
             // MainScreenFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -252,7 +257,6 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainScreenFrm";
             this.Text = "MainScreenFrm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainScreenFrm_FormClosing);
             this.Load += new System.EventHandler(this.MainScreenFrm_Load);
             this.gBInfo.ResumeLayout(false);
             this.gBInfo.PerformLayout();
@@ -279,7 +283,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnChangePassword;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtTotalTime;

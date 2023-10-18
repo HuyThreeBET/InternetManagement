@@ -107,6 +107,7 @@
   <ItemGroup>
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\ComputerController.cs" />
+    <Compile Include="Controller\PlayTimeManagementController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Models\Entities\Account.cs" />
     <Compile Include="Models\Entities\Computer.cs" />

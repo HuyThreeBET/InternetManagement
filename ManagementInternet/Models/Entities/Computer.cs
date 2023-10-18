@@ -16,7 +16,6 @@ namespace ManagementInternet.Models.Entities
             PlayTimeManagements = new HashSet<PlayTimeManagement>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public short Id { get; set; }
 
         public short? ComputerType { get; set; }

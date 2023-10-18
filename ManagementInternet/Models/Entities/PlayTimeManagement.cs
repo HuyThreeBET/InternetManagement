@@ -12,7 +12,7 @@ namespace ManagementInternet.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PlayTimeManagement()
         {
-            Orders = new HashSet<Order>();
+            OrderLists = new HashSet<OrderList>();
         }
 
         public int Id { get; set; }
@@ -29,9 +29,9 @@ namespace ManagementInternet.Models.Entities
 
         public virtual Computer Computer { get; set; }
 
-        public virtual User User { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderList> OrderLists { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

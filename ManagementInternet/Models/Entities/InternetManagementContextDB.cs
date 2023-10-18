@@ -21,6 +21,7 @@ namespace ManagementInternet.Models.Entities
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<OrderList> OrderLists { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -69,15 +70,27 @@ namespace ManagementInternet.Models.Entities
                 .WithOptional(e => e.Dish)
                 .HasForeignKey(e => e.NameOfDish);
 
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderLists)
+                .WithRequired(e => e.Order)
+                .HasForeignKey(e => e.IdOfOrder)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderLists1)
+                .WithRequired(e => e.Order1)
+                .HasForeignKey(e => e.IdOfOrder)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<PlayTimeManagement>()
                 .Property(e => e.IdOfUser)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<PlayTimeManagement>()
-                .HasMany(e => e.Orders)
-                .WithMany(e => e.PlayTimeManagements)
-                .Map(m => m.ToTable("OrderList").MapLeftKey("Id").MapRightKey("IdOfOrder"));
+                .HasMany(e => e.OrderLists)
+                .WithRequired(e => e.PlayTimeManagement)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.Accounts)

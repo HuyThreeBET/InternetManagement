@@ -1,6 +1,6 @@
-﻿namespace ManagementInternet.PlayerManagement
+﻿namespace ManagementInternet.View.Client
 {
-    partial class LoginEmployeeFrm
+    partial class LoginClientFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtAccountName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -56,13 +56,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Mật khẩu";
             // 
-            // txtUser
+            // txtAccountName
             // 
-            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(101, 47);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(203, 24);
-            this.txtUser.TabIndex = 2;
+            this.txtAccountName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccountName.Location = new System.Drawing.Point(101, 47);
+            this.txtAccountName.Name = "txtAccountName";
+            this.txtAccountName.Size = new System.Drawing.Size(203, 24);
+            this.txtAccountName.TabIndex = 2;
             // 
             // txtPassword
             // 
@@ -71,7 +71,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(203, 24);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogIn
             // 
@@ -97,7 +96,7 @@
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // ChangingStaffFrm
+            // LoginClientFrm
             // 
             this.AcceptButton = this.btnLogIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -108,12 +107,12 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.txtAccountName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.Name = "ChangingStaffFrm";
+            this.Name = "LoginClientFrm";
             this.Text = "Đổi nhân viên";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,7 +123,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtAccountName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.Button btnCancel;

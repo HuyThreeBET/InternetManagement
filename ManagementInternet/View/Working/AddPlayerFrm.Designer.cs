@@ -1,4 +1,4 @@
-﻿namespace ManagementInternet.View.PlayerManagement
+﻿namespace ManagementInternet.View.Working
 {
     partial class AddPlayerFrm
     {

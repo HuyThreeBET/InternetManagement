@@ -1,21 +1,22 @@
 ﻿using ManagementInternet.Controller;
 using ManagementInternet.Models.Entities;
-using ManagementInternet.View.PlayerManagement;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ManagementInternet
+namespace ManagementInternet.View.Working
 {
     public partial class CyberManagementFrm : Form
     {
         private AccountController accountController;
         private UserController userController;
+        private ComputerController computerController;
 
         public CyberManagementFrm()
-        {
-            this.userController = new UserController();
+        { 
             this.accountController = new AccountController();
+            this.userController = new UserController();
+            this.computerController = new ComputerController();
 
             InitializeComponent();
         }
@@ -46,9 +47,30 @@ namespace ManagementInternet
             }
         }
 
+        private void getAllComputers()
+        {
+            List<Computer> computers = this.computerController.getAll();
+
+            foreach (Computer computer in computers) { 
+                int index = this.dvgDisplayComputer.Rows.Add();
+
+                this.dvgDisplayComputer.Rows[index].Cells[0].Value = "Máy số " + computer.Id.ToString();
+
+                string state = "Không hoạt động";
+                if (computer.State == true)
+                {
+                    state = "Đang hoạt động";
+                }
+
+                this.dvgDisplayComputer.Rows[index].Cells[1].Value = state;
+                this.dvgDisplayComputer.Rows[index].Cells[6].Value = computer.ComputerType1.Name;
+            }
+        }
+
         private void CyberManagementFrm_Load(object sender, EventArgs e)
         {
             getDataIntoDgv();
+            getAllComputers();
         }
 
         private void toolStripMenuItemAddPlayer_Click(object sender, EventArgs e)

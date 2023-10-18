@@ -1,4 +1,4 @@
-﻿namespace ManagementInternet
+﻿namespace ManagementInternet.View.Working
 {
     partial class CyberManagementFrm
     {
@@ -32,6 +32,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStripHeader = new System.Windows.Forms.MenuStrip();
             this.chucNangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyNhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chuyểnNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thayĐổiThôngTinNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,29 +44,28 @@
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabPlayerAccount = new System.Windows.Forms.TabPage();
             this.dgvPlayerManagement = new System.Windows.Forms.DataGridView();
-            this.colCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConputerStatusManagement = new System.Windows.Forms.TabPage();
-            this.dvgDisplayStatus = new System.Windows.Forms.DataGridView();
-            this.colGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgDisplayComputer = new System.Windows.Forms.DataGridView();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabOrder = new System.Windows.Forms.TabPage();
-            this.toolStripMenuItemAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.tabPlayerAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayerManagement)).BeginInit();
             this.tabConputerStatusManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayComputer)).BeginInit();
             this.tabMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,13 @@
             this.chucNangToolStripMenuItem.Name = "chucNangToolStripMenuItem";
             this.chucNangToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.chucNangToolStripMenuItem.Text = "Chức năng";
+            // 
+            // toolStripMenuItemAddPlayer
+            // 
+            this.toolStripMenuItemAddPlayer.Name = "toolStripMenuItemAddPlayer";
+            this.toolStripMenuItemAddPlayer.Size = new System.Drawing.Size(248, 26);
+            this.toolStripMenuItemAddPlayer.Text = "Thêm hội viên/Nạp tiền";
+            this.toolStripMenuItemAddPlayer.Click += new System.EventHandler(this.toolStripMenuItemAddPlayer_Click);
             // 
             // quanLyNhanVienToolStripMenuItem
             // 
@@ -181,26 +188,12 @@
             this.dgvPlayerManagement.Size = new System.Drawing.Size(1047, 489);
             this.dgvPlayerManagement.TabIndex = 0;
             // 
-            // colCreatedAt
+            // colId
             // 
-            this.colCreatedAt.HeaderText = "Tạo vào lúc";
-            this.colCreatedAt.MinimumWidth = 6;
-            this.colCreatedAt.Name = "colCreatedAt";
-            this.colCreatedAt.ReadOnly = true;
-            // 
-            // colBalance
-            // 
-            this.colBalance.HeaderText = "Số dư";
-            this.colBalance.MinimumWidth = 6;
-            this.colBalance.Name = "colBalance";
-            this.colBalance.ReadOnly = true;
-            // 
-            // colSex
-            // 
-            this.colSex.HeaderText = "Giới tính";
-            this.colSex.MinimumWidth = 6;
-            this.colSex.Name = "colSex";
-            this.colSex.ReadOnly = true;
+            this.colId.HeaderText = "Mã căn cước";
+            this.colId.MinimumWidth = 6;
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
             // 
             // colAccountName
             // 
@@ -209,16 +202,30 @@
             this.colAccountName.Name = "colAccountName";
             this.colAccountName.ReadOnly = true;
             // 
-            // colId
+            // colSex
             // 
-            this.colId.HeaderText = "Mã căn cước";
-            this.colId.MinimumWidth = 6;
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
+            this.colSex.HeaderText = "Giới tính";
+            this.colSex.MinimumWidth = 6;
+            this.colSex.Name = "colSex";
+            this.colSex.ReadOnly = true;
+            // 
+            // colBalance
+            // 
+            this.colBalance.HeaderText = "Số dư";
+            this.colBalance.MinimumWidth = 6;
+            this.colBalance.Name = "colBalance";
+            this.colBalance.ReadOnly = true;
+            // 
+            // colCreatedAt
+            // 
+            this.colCreatedAt.HeaderText = "Tạo vào lúc";
+            this.colCreatedAt.MinimumWidth = 6;
+            this.colCreatedAt.Name = "colCreatedAt";
+            this.colCreatedAt.ReadOnly = true;
             // 
             // tabConputerStatusManagement
             // 
-            this.tabConputerStatusManagement.Controls.Add(this.dvgDisplayStatus);
+            this.tabConputerStatusManagement.Controls.Add(this.dvgDisplayComputer);
             this.tabConputerStatusManagement.Location = new System.Drawing.Point(4, 27);
             this.tabConputerStatusManagement.Name = "tabConputerStatusManagement";
             this.tabConputerStatusManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -227,16 +234,16 @@
             this.tabConputerStatusManagement.Text = "Quản lí máy";
             this.tabConputerStatusManagement.UseVisualStyleBackColor = true;
             // 
-            // dvgDisplayStatus
+            // dvgDisplayComputer
             // 
-            this.dvgDisplayStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dvgDisplayComputer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dvgDisplayStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dvgDisplayStatus.BackgroundColor = System.Drawing.Color.White;
-            this.dvgDisplayStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dvgDisplayStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgDisplayStatus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dvgDisplayComputer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dvgDisplayComputer.BackgroundColor = System.Drawing.Color.White;
+            this.dvgDisplayComputer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dvgDisplayComputer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgDisplayComputer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colStatus,
             this.colUser,
@@ -244,42 +251,18 @@
             this.colUsed,
             this.colRemaining,
             this.colGroup});
-            this.dvgDisplayStatus.Location = new System.Drawing.Point(3, 3);
-            this.dvgDisplayStatus.Name = "dvgDisplayStatus";
-            this.dvgDisplayStatus.RowHeadersWidth = 51;
-            this.dvgDisplayStatus.RowTemplate.Height = 24;
-            this.dvgDisplayStatus.Size = new System.Drawing.Size(1053, 492);
-            this.dvgDisplayStatus.TabIndex = 3;
+            this.dvgDisplayComputer.Location = new System.Drawing.Point(3, 3);
+            this.dvgDisplayComputer.Name = "dvgDisplayComputer";
+            this.dvgDisplayComputer.RowHeadersWidth = 51;
+            this.dvgDisplayComputer.RowTemplate.Height = 24;
+            this.dvgDisplayComputer.Size = new System.Drawing.Size(1053, 492);
+            this.dvgDisplayComputer.TabIndex = 3;
             // 
-            // colGroup
+            // colName
             // 
-            this.colGroup.HeaderText = "Nhóm máy";
-            this.colGroup.MinimumWidth = 6;
-            this.colGroup.Name = "colGroup";
-            // 
-            // colRemaining
-            // 
-            this.colRemaining.HeaderText = "Còn lại";
-            this.colRemaining.MinimumWidth = 6;
-            this.colRemaining.Name = "colRemaining";
-            // 
-            // colUsed
-            // 
-            this.colUsed.HeaderText = "Đã sử dụng";
-            this.colUsed.MinimumWidth = 6;
-            this.colUsed.Name = "colUsed";
-            // 
-            // colStart
-            // 
-            this.colStart.HeaderText = "Thời gian vào";
-            this.colStart.MinimumWidth = 6;
-            this.colStart.Name = "colStart";
-            // 
-            // colUser
-            // 
-            this.colUser.HeaderText = "Người dùng";
-            this.colUser.MinimumWidth = 6;
-            this.colUser.Name = "colUser";
+            this.colName.HeaderText = "Tên Máy";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
             // 
             // colStatus
             // 
@@ -287,11 +270,35 @@
             this.colStatus.MinimumWidth = 6;
             this.colStatus.Name = "colStatus";
             // 
-            // colName
+            // colUser
             // 
-            this.colName.HeaderText = "Tên Máy";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
+            this.colUser.HeaderText = "Người dùng";
+            this.colUser.MinimumWidth = 6;
+            this.colUser.Name = "colUser";
+            // 
+            // colStart
+            // 
+            this.colStart.HeaderText = "Thời gian vào";
+            this.colStart.MinimumWidth = 6;
+            this.colStart.Name = "colStart";
+            // 
+            // colUsed
+            // 
+            this.colUsed.HeaderText = "Đã sử dụng";
+            this.colUsed.MinimumWidth = 6;
+            this.colUsed.Name = "colUsed";
+            // 
+            // colRemaining
+            // 
+            this.colRemaining.HeaderText = "Còn lại";
+            this.colRemaining.MinimumWidth = 6;
+            this.colRemaining.Name = "colRemaining";
+            // 
+            // colGroup
+            // 
+            this.colGroup.HeaderText = "Nhóm máy";
+            this.colGroup.MinimumWidth = 6;
+            this.colGroup.Name = "colGroup";
             // 
             // tabMain
             // 
@@ -315,13 +322,6 @@
             this.tabOrder.Text = "Dịch vụ";
             this.tabOrder.UseVisualStyleBackColor = true;
             // 
-            // toolStripMenuItemAddPlayer
-            // 
-            this.toolStripMenuItemAddPlayer.Name = "toolStripMenuItemAddPlayer";
-            this.toolStripMenuItemAddPlayer.Size = new System.Drawing.Size(248, 26);
-            this.toolStripMenuItemAddPlayer.Text = "Thêm hội viên/Nạp tiền";
-            this.toolStripMenuItemAddPlayer.Click += new System.EventHandler(this.toolStripMenuItemAddPlayer_Click);
-            // 
             // CyberManagementFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -338,7 +338,7 @@
             this.tabPlayerAccount.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayerManagement)).EndInit();
             this.tabConputerStatusManagement.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayComputer)).EndInit();
             this.tabMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -359,7 +359,7 @@
         private System.Windows.Forms.ErrorProvider error;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabConputerStatusManagement;
-        private System.Windows.Forms.DataGridView dvgDisplayStatus;
+        private System.Windows.Forms.DataGridView dvgDisplayComputer;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUser;

@@ -24,10 +24,22 @@ namespace ManagementInternet.Controller
 
         public bool getById(string id)
         {
-            InternetManagementContextDB context = new InternetManagementContextDB();
-            Account account = context.Accounts.FirstOrDefault(ac => ac.Id.Equals(id));
+            using (InternetManagementContextDB context = new InternetManagementContextDB())
+            {
+                Account account = context.Accounts.FirstOrDefault(ac => ac.Id.Equals(id));
+                
+                return account != null;
+            }
+        }
 
-            return account != null;
+        public Account getByAccountName(string accountName)
+        {
+            using (InternetManagementContextDB context = new InternetManagementContextDB())
+            {
+                Account account = context.Accounts.FirstOrDefault(ac => ac.AccountName.Equals(accountName));
+                
+                return account;
+            }
         }
 
         public void modify(Account obj)

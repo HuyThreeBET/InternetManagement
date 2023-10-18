@@ -1,4 +1,4 @@
-﻿namespace InternetShop
+﻿namespace ManagementInternet.View
 {
     partial class WelcomeFrm
     {
@@ -76,6 +76,7 @@
             this.btnOpenClientForm.TabIndex = 0;
             this.btnOpenClientForm.Text = "Khách hàng";
             this.btnOpenClientForm.UseVisualStyleBackColor = true;
+            this.btnOpenClientForm.Click += new System.EventHandler(this.btnOpenClientForm_Click);
             // 
             // label1
             // 

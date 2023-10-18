@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\ComputerController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Models\Entities\Account.cs" />
     <Compile Include="Models\Entities\Computer.cs" />
@@ -113,53 +114,69 @@
     <Compile Include="Models\Entities\Dish.cs" />
     <Compile Include="Models\Entities\InternetManagementContextDB.cs" />
     <Compile Include="Models\Entities\Order.cs" />
+    <Compile Include="Models\Entities\OrderList.cs" />
     <Compile Include="Models\Entities\PlayTimeManagement.cs" />
     <Compile Include="Models\Entities\Role.cs" />
     <Compile Include="Models\Entities\Staff.cs" />
     <Compile Include="Models\Entities\User.cs" />
-    <Compile Include="View\PlayerManagement\AddPlayerFrm.cs">
+    <Compile Include="View\Client\MainScreenFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\PlayerManagement\AddPlayerFrm.Designer.cs">
+    <Compile Include="View\Client\MainScreenFrm.Designer.cs">
+      <DependentUpon>MainScreenFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Working\AddPlayerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Working\AddPlayerFrm.Designer.cs">
       <DependentUpon>AddPlayerFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\PlayerManagement\CyberManagementFrm.cs">
+    <Compile Include="View\Client\ComputersFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\PlayerManagement\CyberManagementFrm.Designer.cs">
+    <Compile Include="View\Client\ComputersFrm.Designer.cs">
+      <DependentUpon>ComputersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Working\CyberManagementFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Working\CyberManagementFrm.Designer.cs">
       <DependentUpon>CyberManagementFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\PlayerManagement\LoginEmployeeFrm.cs">
+    <Compile Include="View\Client\LoginClientFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\PlayerManagement\LoginEmployeeFrm.Designer.cs">
-      <DependentUpon>LoginEmployeeFrm.cs</DependentUpon>
+    <Compile Include="View\Client\LoginClientFrm.Designer.cs">
+      <DependentUpon>LoginClientFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\User\ClientLoginFrm.cs">
+    <Compile Include="View\Working\LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\User\ClientLoginFrm.Designer.cs">
-      <DependentUpon>ClientLoginFrm.cs</DependentUpon>
+    <Compile Include="View\Working\LoginFrm.Designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WelcomeFrm.cs">
+    <Compile Include="View\WelcomeFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WelcomeFrm.Designer.cs">
+    <Compile Include="View\WelcomeFrm.Designer.cs">
       <DependentUpon>WelcomeFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\PlayerManagement\AddPlayerFrm.resx">
+    <EmbeddedResource Include="View\Client\MainScreenFrm.resx">
+      <DependentUpon>MainScreenFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Working\AddPlayerFrm.resx">
       <DependentUpon>AddPlayerFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\PlayerManagement\CyberManagementFrm.resx">
+    <EmbeddedResource Include="View\Client\ComputersFrm.resx">
+      <DependentUpon>ComputersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Working\CyberManagementFrm.resx">
       <DependentUpon>CyberManagementFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\User\ClientLoginFrm.resx">
-      <DependentUpon>ClientLoginFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\PlayerManagement\LoginEmployeeFrm.resx">
-      <DependentUpon>LoginEmployeeFrm.cs</DependentUpon>
+    <EmbeddedResource Include="View\Client\LoginClientFrm.resx">
+      <DependentUpon>LoginClientFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,7 +187,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WelcomeFrm.resx">
+    <EmbeddedResource Include="View\Working\LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WelcomeFrm.resx">
       <DependentUpon>WelcomeFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -189,6 +209,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Util\" />
+    <Folder Include="View\Working\Employee\" />
+    <Folder Include="View\Working\Management\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddtionalFiles\Sql.txt" />

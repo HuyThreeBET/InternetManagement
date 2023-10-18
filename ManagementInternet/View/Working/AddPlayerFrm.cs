@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ManagementInternet.View.PlayerManagement
+namespace ManagementInternet.View.Working
 {
     public partial class AddPlayerFrm : Form
     {
@@ -160,7 +160,7 @@ namespace ManagementInternet.View.PlayerManagement
 
                 MessageBox.Show("Nạp tiền thành công ");
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Số tiền nhập không hợp lệ");
             }

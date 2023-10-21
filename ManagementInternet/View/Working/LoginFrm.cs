@@ -1,4 +1,5 @@
 ﻿using ManagementInternet.Controller;
+using ManagementInternet.Function;
 using ManagementInternet.Models.Entities;
 using System.Windows.Forms;
 
@@ -8,13 +9,16 @@ namespace ManagementInternet.View.Working
     {
         private AccountController accountController;
         private Account account;
+        private Helper helper;
 
         public Account Account { get => account; set => account = value; }
+        internal Helper Helper { get => helper; set => helper = value; }
 
         public LoginFrm()
         {
             this.accountController = new AccountController();   
             this.Account = null;
+            this.Helper = new Helper(); 
 
             InitializeComponent();
         }
@@ -23,9 +27,19 @@ namespace ManagementInternet.View.Working
         {
             this.Account = this.accountController.getByAccountName(this.txtAccountName.Text);
 
-            if (this.Account != null && this.txtPassword.Text.Equals(this.txtPassword.Text) && this.Account.RoleId == 2)
+            string passwordFromDB = this.Account.Passowrd;
+            string passowrdTxt = this.txtPassword.Text;
+            string passowrd = Helper.transferPassword(passwordFromDB);
+
+            if (this.Account == null)
             {
-                CyberManagementFrm cyberManagementFrm = new CyberManagementFrm();
+                this.txtPassword.Text = string.Empty;
+                return;
+            }
+
+            if (passowrd.Equals(passowrdTxt) && this.Account.RoleId == 2)
+            {
+                CyberManagementFrm cyberManagementFrm = new CyberManagementFrm(this);
                 cyberManagementFrm.Show();
 
                 this.Hide();

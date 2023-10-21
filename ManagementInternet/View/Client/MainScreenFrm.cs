@@ -1,5 +1,6 @@
 ﻿using ManagementInternet.Controller;
 using System;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 
@@ -7,37 +8,43 @@ namespace ManagementInternet.View.Client
 {
     public partial class MainScreenFrm : Form
     {
-        private LoginClientFrm loginClientFrm;
         private System.Timers.Timer timer;
-        private ComputerController computerController;
+        private LoginClientFrm loginClientFrm;
         private PlayTimeManagementController playTimeManagementController;
-        private UserController userController;
         private int computerId;
+        private bool checkingBalance;
+        // i means increase
         private int isecond = 0;
         private int iminute = 0;
         private int ihour = 0;
+        // d means decrease
         private int dsecond = 0;
         private int dminute = 0;
         private int dhour = 0;
 
+        public LoginClientFrm LoginClientFrm { get => loginClientFrm; set => loginClientFrm = value; }
+
+        // The LoginClientFrm parameter is passed to retrieve information from the previous form
         public MainScreenFrm(LoginClientFrm LoginClientFrm)
         {
-            this.loginClientFrm = LoginClientFrm;
-            this.computerController = new ComputerController();
-            this.playTimeManagementController = new PlayTimeManagementController(); 
-            this.userController = new UserController();
-            this.computerId = this.loginClientFrm.ComputersFrm.ComputerX;
-            this.loginClientFrm.PlayTimeManagement.IdOfComputer = (short)this.loginClientFrm.ComputersFrm.ComputerX;
+            this.LoginClientFrm = LoginClientFrm;
+            this.playTimeManagementController = new PlayTimeManagementController();
+            this.computerId = this.LoginClientFrm.ComputersFrm.ComputerX;
+            this.LoginClientFrm.PlayTimeManagement.IdOfComputer = (short)this.LoginClientFrm.ComputersFrm.ComputerX;
+            this.checkingBalance = true;
 
             InitializeComponent();
         }
 
+        // Calculate the total time equal to the client's balance
+        // Assign it to txtTotalTime
         private void totalTime(int price)
         {
-            double hourDouble = (double)this.loginClientFrm.User.Balance / (double)price;
+            // Calculation formula
+            double hourDouble = (double)this.LoginClientFrm.User.Balance / (double)price;
             int hour = (int)hourDouble;
 
-            double remainMoney = (double)this.loginClientFrm.User.Balance - (double)(hour * price);
+            double remainMoney = (double)this.LoginClientFrm.User.Balance - (double)(hour * price);
             double moneyIntoMinute = remainMoney / (double)price;
             double minuteDouble = moneyIntoMinute * 60;
             int minute = (int)minuteDouble;
@@ -50,6 +57,15 @@ namespace ManagementInternet.View.Client
             this.dminute = minute;
             this.dsecond = second;
 
+            this.txtTotalTime.Text = this.dhour.ToString().PadLeft(2, '0') + ":" + this.dminute.ToString().PadLeft(2, '0') + ":" + this.dsecond.ToString().PadLeft(2, '0');
+        }
+
+        // TEST: set 10 seconds to test when timeout then logout
+        private void totalTimeTEST()
+        {
+            this.dhour = 0;
+            this.dminute = 0;
+            this.dsecond = 10;
             this.txtTotalTime.Text = this.dhour.ToString().PadLeft(2, '0') + ":" + this.dminute.ToString().PadLeft(2, '0') + ":" + this.dsecond.ToString().PadLeft(2, '0');
         }
 
@@ -69,13 +85,26 @@ namespace ManagementInternet.View.Client
 
                 if (this.dsecond == 0)
                 {
-                    this.dsecond = 59;
-                    this.dminute--;
+                    if (this.dminute != 0)
+                    {
+                        this.dsecond = 59;
+                        this.dminute--;
+                    }
                 }
+
                 if (this.dminute == 0)
                 {
-                    this.dminute = 59;
-                    this.dhour--;
+                    if (this.dhour != 0)
+                    {
+                        this.dminute = 59;
+                        this.dhour--;
+                    }
+                }
+
+                // To signal when time is up and send notification to the timeOut function
+                if (this.dhour == 0 && this.dminute == 0 && this.dsecond == 0)
+                {
+                    checkingBalance = false;
                 }
 
                 this.txtRemainTime.Text = string.Format("{0}:{1}:{2}", this.dhour.ToString().PadLeft(2, '0'), this.dminute.ToString().PadLeft(2, '0'), this.dsecond.ToString().PadLeft(2, '0'));
@@ -93,6 +122,7 @@ namespace ManagementInternet.View.Client
                     this.isecond = 0;
                     this.iminute++;
                 }
+
                 if (this.iminute == 60)
                 {
                     this.iminute = 0;
@@ -103,46 +133,89 @@ namespace ManagementInternet.View.Client
             }));
         }
 
-        private void MainScreenFrm_Load(object sender, EventArgs e)
-        {
-            setTimer();
-
-            this.timer.Start();
-            this.txtCostPlayTime.Text = this.loginClientFrm.ComputersFrm.Computer.ComputerType1.Price.ToString();
-
-            Application.DoEvents();
-
-            totalTime(this.loginClientFrm.ComputersFrm.Computer.ComputerType1.Price);
-        }
-
+        // Charge based on client's playing time
         private double prepareTheBill(int price)
         {
             double amountPerMinute = (double)price / 60;
-
-            double minute = ((double)this.dsecond / 60) * 600;
-
+            double minute = ((double)this.dsecond / 60) * 60;
             double result = amountPerMinute * minute;
 
             return result;
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
+        private void logout()
         {
+            // After logging out, get the current date and time
+            this.LoginClientFrm.PlayTimeManagement.EndTime = DateTime.Now;
+
+            // Formula to calculate the player's balance after playing
+            double balance = (double)this.LoginClientFrm.User.Balance;
+            double amountUsed = prepareTheBill(this.LoginClientFrm.ComputersFrm.Computer.ComputerType1.Price);
+
+            this.LoginClientFrm.User.Balance = (decimal)(balance - amountUsed);
+            this.LoginClientFrm.UserControlelr.modify(this.LoginClientFrm.User);
+            this.playTimeManagementController.modify(this.LoginClientFrm.PlayTimeManagement);
+
+            if (this.checkingBalance)
+            {
+                MessageBox.Show("Bạn đã sử dụng: " + amountUsed.ToString());
+            }
+        }
+
+        // This function will run in parallel
+        private async Task timeOut()
+        {
+            Task timeOut = new Task(() =>
+            {
+                // Runs endlessly until the timer signal is received
+                while (true)
+                {
+                    if (!this.checkingBalance)
+                    {
+                        this.Hide();
+
+                        logout();
+
+                        MessageBox.Show("Bạn đã hết số dư");
+
+                        break;
+                    }
+                }
+            }
+            );
            
+            timeOut.Start();
+        }
+
+        private void MainScreenFrm_Load(object sender, EventArgs e)
+        {
+            this.gBInfo.Text = this.LoginClientFrm.Account.AccountName;
+
+            setTimer();
+
+            Task logoutWhenTimeOut = timeOut();
+
+            this.timer.Start();
+            this.txtCostPlayTime.Text = this.LoginClientFrm.ComputersFrm.Computer.ComputerType1.Price.ToString() + ".000";
+
+            totalTime(this.loginClientFrm.ComputersFrm.Computer.ComputerType1.Price);
+            // TEST get out of amount function
+            // totalTimeTEST();
+
+            Application.DoEvents();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.loginClientFrm.PlayTimeManagement.EndTime = DateTime.Now;
+            logout();
 
-            double balance = (double)this.loginClientFrm.User.Balance;
-            double amountUsed = prepareTheBill(this.loginClientFrm.ComputersFrm.Computer.ComputerType1.Price);
-
-            this.loginClientFrm.User.Balance = (decimal)(balance - amountUsed);
-            this.userController.modify(this.loginClientFrm.User);
-            this.playTimeManagementController.modify(this.loginClientFrm.PlayTimeManagement);
-        
             Application.Exit();
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            ChangingPasswordFrm changingPasswordFrm = new ChangingPasswordFrm(this);
+            changingPasswordFrm.Show();
         }
     }
 }

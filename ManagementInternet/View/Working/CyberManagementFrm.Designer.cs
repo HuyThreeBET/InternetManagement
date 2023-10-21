@@ -34,10 +34,10 @@
             this.chucNangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyNhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chuyểnNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thayĐổiThôngTinNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemService = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLoggout = new System.Windows.Forms.ToolStripMenuItem();
             this.heThongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baoCaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,10 +93,10 @@
             this.chucNangToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemAddPlayer,
             this.quanLyNhanVienToolStripMenuItem,
-            this.chuyểnNhânViênToolStripMenuItem,
-            this.thayĐổiThôngTinNhânViênToolStripMenuItem,
-            this.dịchVụToolStripMenuItem,
-            this.thôngTinKháchHàngToolStripMenuItem});
+            this.ToolStripMenuItemChangePassword,
+            this.ToolStripMenuItemService,
+            this.thôngTinKháchHàngToolStripMenuItem,
+            this.toolStripMenuItemLoggout});
             this.chucNangToolStripMenuItem.Name = "chucNangToolStripMenuItem";
             this.chucNangToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.chucNangToolStripMenuItem.Text = "Chức năng";
@@ -114,29 +114,31 @@
             this.quanLyNhanVienToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.quanLyNhanVienToolStripMenuItem.Text = "Quản lý nhân viên";
             // 
-            // chuyểnNhânViênToolStripMenuItem
+            // ToolStripMenuItemChangePassword
             // 
-            this.chuyểnNhânViênToolStripMenuItem.Name = "chuyểnNhânViênToolStripMenuItem";
-            this.chuyểnNhânViênToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.chuyểnNhânViênToolStripMenuItem.Text = "Chuyển nhân viên";
+            this.ToolStripMenuItemChangePassword.Name = "ToolStripMenuItemChangePassword";
+            this.ToolStripMenuItemChangePassword.Size = new System.Drawing.Size(248, 26);
+            this.ToolStripMenuItemChangePassword.Text = "Đổi mật khẩu";
+            this.ToolStripMenuItemChangePassword.Click += new System.EventHandler(this.ToolStripMenuItemChangePassword_Click);
             // 
-            // thayĐổiThôngTinNhânViênToolStripMenuItem
+            // ToolStripMenuItemService
             // 
-            this.thayĐổiThôngTinNhânViênToolStripMenuItem.Name = "thayĐổiThôngTinNhânViênToolStripMenuItem";
-            this.thayĐổiThôngTinNhânViênToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.thayĐổiThôngTinNhânViênToolStripMenuItem.Text = "Thông tin nhân viên";
-            // 
-            // dịchVụToolStripMenuItem
-            // 
-            this.dịchVụToolStripMenuItem.Name = "dịchVụToolStripMenuItem";
-            this.dịchVụToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.dịchVụToolStripMenuItem.Text = "Dịch vụ";
+            this.ToolStripMenuItemService.Name = "ToolStripMenuItemService";
+            this.ToolStripMenuItemService.Size = new System.Drawing.Size(248, 26);
+            this.ToolStripMenuItemService.Text = "Dịch vụ";
+            this.ToolStripMenuItemService.Click += new System.EventHandler(this.ToolStripMenuItemService_Click);
             // 
             // thôngTinKháchHàngToolStripMenuItem
             // 
             this.thôngTinKháchHàngToolStripMenuItem.Name = "thôngTinKháchHàngToolStripMenuItem";
             this.thôngTinKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.thôngTinKháchHàngToolStripMenuItem.Text = "Thông tin khách hàng";
+            // 
+            // toolStripMenuItemLoggout
+            // 
+            this.toolStripMenuItemLoggout.Name = "toolStripMenuItemLoggout";
+            this.toolStripMenuItemLoggout.Size = new System.Drawing.Size(248, 26);
+            this.toolStripMenuItemLoggout.Text = "Đăng xuất";
             // 
             // heThongToolStripMenuItem
             // 
@@ -349,9 +351,8 @@
         private System.Windows.Forms.MenuStrip menuStripHeader;
         private System.Windows.Forms.ToolStripMenuItem chucNangToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quanLyNhanVienToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chuyểnNhânViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thayĐổiThôngTinNhânViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dịchVụToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemChangePassword;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemService;
         private System.Windows.Forms.ToolStripMenuItem thôngTinKháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem heThongToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baoCaoToolStripMenuItem;
@@ -376,5 +377,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedAt;
         private System.Windows.Forms.TabPage tabOrder;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddPlayer;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLoggout;
     }
 }

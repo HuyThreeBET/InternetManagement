@@ -107,19 +107,28 @@
   <ItemGroup>
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\ComputerController.cs" />
+    <Compile Include="Controller\DishController.cs" />
+    <Compile Include="Controller\TypeOfDishController.cs" />
     <Compile Include="Controller\PlayTimeManagementController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Function\Helper.cs" />
     <Compile Include="Models\Entities\Account.cs" />
     <Compile Include="Models\Entities\Computer.cs" />
     <Compile Include="Models\Entities\ComputerType.cs" />
     <Compile Include="Models\Entities\Dish.cs" />
     <Compile Include="Models\Entities\InternetManagementContextDB.cs" />
     <Compile Include="Models\Entities\Order.cs" />
-    <Compile Include="Models\Entities\OrderList.cs" />
     <Compile Include="Models\Entities\PlayTimeManagement.cs" />
     <Compile Include="Models\Entities\Role.cs" />
     <Compile Include="Models\Entities\Staff.cs" />
+    <Compile Include="Models\Entities\TypeOfDish.cs" />
     <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="View\Client\ChangingPasswordFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Client\ChangingPasswordFrm.Designer.cs">
+      <DependentUpon>ChangingPasswordFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Client\MainScreenFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +146,12 @@
     </Compile>
     <Compile Include="View\Client\ComputersFrm.Designer.cs">
       <DependentUpon>ComputersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Working\ChangePasswordFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Working\ChangePasswordFrm.Designer.cs">
+      <DependentUpon>ChangePasswordFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Working\CyberManagementFrm.cs">
       <SubType>Form</SubType>
@@ -164,6 +179,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Working\Management\Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Working\Management\Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Client\ChangingPasswordFrm.resx">
+      <DependentUpon>ChangingPasswordFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Client\MainScreenFrm.resx">
       <DependentUpon>MainScreenFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Client\ComputersFrm.resx">
       <DependentUpon>ComputersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Working\ChangePasswordFrm.resx">
+      <DependentUpon>ChangePasswordFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Working\CyberManagementFrm.resx">
       <DependentUpon>CyberManagementFrm.cs</DependentUpon>
@@ -194,6 +221,9 @@
     <EmbeddedResource Include="View\WelcomeFrm.resx">
       <DependentUpon>WelcomeFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Working\Management\Service.resx">
+      <DependentUpon>Service.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -208,11 +238,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Util\" />
-    <Folder Include="View\Working\Employee\" />
-    <Folder Include="View\Working\Management\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="AddtionalFiles\Sql.txt" />
   </ItemGroup>

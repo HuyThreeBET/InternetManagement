@@ -1,4 +1,4 @@
-﻿Use Master;
+﻿﻿Use Master;
 Go
 
 IF EXISTS (SELECT Name FROM sys.databases WHERE Name = 'InternetManagement')
@@ -52,10 +52,17 @@ CREATE TABLE [Decentralization] (
 )
 GO
 
+CREATE TABLE [TypeOfDish] (
+  [Name] nvarchar(255) PRIMARY KEY
+)
+GO
+
 CREATE TABLE [Dish] (
   [Name] nvarchar(255) PRIMARY KEY,
+  [Type] nvarchar(255) NOT NULL,
   [Price] smallint NOT NULL DEFAULT (0),
-  [Image] image NOT NULL
+  [Image] image NOT NULL,
+  [State] bit NOT NULL DEFAULT (1)
 )
 GO
 
@@ -79,7 +86,9 @@ CREATE TABLE [Order] (
   [NameOfDish] nvarchar(255),
   [Quantity] smallint NOT NULL DEFAULT (1),
   [TotalAmount] smallint NOT NULL DEFAULT (0),
-  [CreateAt] datetime NOT NULL DEFAULT (getdate())
+  [CreateAt] datetime NOT NULL DEFAULT (getdate()),
+  [Status] bit NOT NULL DEFAULT (1),
+  [Note] text NOT NULL DEFAULT ''
 )
 GO
 
@@ -164,6 +173,9 @@ GO
 ALTER TABLE [Decentralization] ADD FOREIGN KEY ([Permision]) REFERENCES [Role] ([Id])
 GO
 
+ALTER TABLE [Dish] ADD FOREIGN KEY ([Type]) REFERENCES [TypeOfDish] ([Name])
+GO
+
 ALTER TABLE [Computer] ADD FOREIGN KEY ([ComputerType]) REFERENCES [ComputerType] ([Id])
 GO
 
@@ -185,6 +197,45 @@ GO
 ALTER TABLE [OrderList] ADD FOREIGN KEY ([IdOfOrder]) REFERENCES [Order] ([Id])
 GO
 
+SET IDENTITY_INSERT [dbo].[Role] ON 
+
+INSERT [dbo].[Role] ([Id], [Name]) VALUES (4, N'Chủ quán nét')
+INSERT [dbo].[Role] ([Id], [Name]) VALUES (1, N'Khách hàng')
+INSERT [dbo].[Role] ([Id], [Name]) VALUES (2, N'Nhân viên')
+INSERT [dbo].[Role] ([Id], [Name]) VALUES (3, N'Quản lí')
+SET IDENTITY_INSERT [dbo].[Role] OFF
+GO
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'001                   ', N'quochuy160903                                          ', N'1                                                      ', 1, 1, CAST(N'2023-10-14T23:46:53.863' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'002                   ', N'lequan1134                                             ', N'2                                                      ', 0, 1, CAST(N'2023-10-14T23:47:08.860' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'003                   ', N'ntd11                                                  ', N'3                                                      ', 0, 1, CAST(N'2023-10-14T23:47:19.760' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'008                   ', N'quang112                                               ', N'2                                                      ', 1, 1, CAST(N'2023-10-15T00:02:53.647' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'091                   ', N'huyhuy111                                              ', N'3                                                      ', 0, 1, CAST(N'2023-10-15T22:17:08.940' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'1123                  ', N'huytran111                                             ', N'2                                                      ', 0, 1, CAST(N'2023-10-15T21:58:32.930' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'123478                ', N'bongro123                                              ', N'32                                                     ', 0, 1, CAST(N'2023-10-15T22:01:47.000' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'83129                 ', N'nhanvien11                                             ', N'1                                                      ', 1, 2, CAST(N'2023-10-18T11:24:04.253' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'8817                  ', N'nngoa                                                  ', N'22                                                     ', 0, 1, CAST(N'2023-10-15T21:26:41.823' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'888                   ', N'huypo123                                               ', N'3                                                      ', 0, 1, CAST(N'2023-10-15T22:32:30.707' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'91923                 ', N'lequanancut                                            ', N'223                                                    ', 1, 1, CAST(N'2023-10-15T23:29:30.510' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'9901                  ', N'huyhhh                                                 ', N'2                                                      ', 1, 1, CAST(N'2023-10-15T22:33:15.643' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'9911                  ', N'trantran991                                            ', N'7                                                      ', 1, 1, CAST(N'2023-10-15T21:25:42.243' AS DateTime))
+INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'9999                  ', N'minhquang666                                           ', N'8                                                      ', 1, 1, CAST(N'2023-10-15T21:16:49.167' AS DateTime))
+GO
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'001                   ', CAST(245.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'002                   ', CAST(1058.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'003                   ', CAST(150.666 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'008                   ', CAST(222.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'091                   ', CAST(0.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'1123                  ', CAST(0.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'123478                ', CAST(0.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'8817                  ', CAST(2222.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'888                   ', CAST(2.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'91923                 ', CAST(23.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'9901                  ', CAST(222.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'9911                  ', CAST(0.000 AS Decimal(10, 3)))
+INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'9999                  ', CAST(0.000 AS Decimal(10, 3)))
+GO
+INSERT [dbo].[Staff] ([Id], [FullName], [DayOfBirth], [State], [DayOfWork], [DayOff]) VALUES (N'83129                 ', N'Nguyễn Minh', CAST(N'2023-10-14T23:47:19.760' AS DateTime), 1, CAST(N'2023-10-14T23:47:19.760' AS DateTime), CAST(N'2023-10-14T23:47:19.760' AS DateTime))
+GO
 SET IDENTITY_INSERT [dbo].[ComputerType] ON 
 
 INSERT [dbo].[ComputerType] ([Id], [Name], [Price]) VALUES (1, N'I5 11400H', 5)
@@ -200,7 +251,6 @@ INSERT [dbo].[ComputerType] ([Id], [Name], [Price]) VALUES (10, N'NTD999', 14)
 INSERT [dbo].[ComputerType] ([Id], [Name], [Price]) VALUES (11, N'HUYCUTE', 15)
 SET IDENTITY_INSERT [dbo].[ComputerType] OFF
 GO
-
 SET IDENTITY_INSERT [dbo].[Computer] ON 
 
 INSERT [dbo].[Computer] ([Id], [ComputerType], [State]) VALUES (1, 1, 0)
@@ -220,50 +270,6 @@ INSERT [dbo].[Computer] ([Id], [ComputerType], [State]) VALUES (14, 3, 0)
 INSERT [dbo].[Computer] ([Id], [ComputerType], [State]) VALUES (15, 3, 0)
 SET IDENTITY_INSERT [dbo].[Computer] OFF
 GO
-
-SET IDENTITY_INSERT [dbo].[Role] ON 
-
-INSERT [dbo].[Role] ([Id], [Name]) VALUES (4, N'Chủ quán nét')
-INSERT [dbo].[Role] ([Id], [Name]) VALUES (1, N'Khách hàng')
-INSERT [dbo].[Role] ([Id], [Name]) VALUES (2, N'Nhân viên')
-INSERT [dbo].[Role] ([Id], [Name]) VALUES (3, N'Quản lí')
-SET IDENTITY_INSERT [dbo].[Role] OFF
-GO
-
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'001                   ', N'quochuy160903                                          ', N'1                                                      ', 1, 1, CAST(N'2023-10-14T23:46:53.863' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'002                   ', N'lequan1134                                             ', N'2                                                      ', 0, 1, CAST(N'2023-10-14T23:47:08.860' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'003                   ', N'ntd11                                                  ', N'3                                                      ', 0, 1, CAST(N'2023-10-14T23:47:19.760' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'008                   ', N'quang112                                               ', N'2                                                      ', 1, 1, CAST(N'2023-10-15T00:02:53.647' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'091                   ', N'huyhuy111                                              ', N'3                                                      ', 0, 1, CAST(N'2023-10-15T22:17:08.940' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'1123                  ', N'huytran111                                             ', N'2                                                      ', 0, 1, CAST(N'2023-10-15T21:58:32.930' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'123478                ', N'bongro123                                              ', N'32                                                     ', 0, 1, CAST(N'2023-10-15T22:01:47.000' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'83129                 ', N'nhanvien11                                             ', N'1                                                      ', 1, 2, CAST(N'2023-10-18T11:24:04.253' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'8817                  ', N'nngoa                                                  ', N'22                                                     ', 0, 1, CAST(N'2023-10-15T21:26:41.823' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'888                   ', N'huypo123                                               ', N'3                                                      ', 0, 1, CAST(N'2023-10-15T22:32:30.707' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'91923                 ', N'lequanancut                                            ', N'223                                                    ', 1, 1, CAST(N'2023-10-15T23:29:30.510' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'9901                  ', N'huyhhh                                                 ', N'2                                                      ', 1, 1, CAST(N'2023-10-15T22:33:15.643' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'9911                  ', N'trantran991                                            ', N'7                                                      ', 1, 1, CAST(N'2023-10-15T21:25:42.243' AS DateTime))
-INSERT [dbo].[Account] ([Id], [AccountName], [Passowrd], [Sex], [RoleId], [CreateAt]) VALUES (N'9999                  ', N'minhquang666                                           ', N'8                                                      ', 1, 1, CAST(N'2023-10-15T21:16:49.167' AS DateTime))
-GO
-
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'001                   ', CAST(245.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'002                   ', CAST(1058.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'003                   ', CAST(150.666 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'008                   ', CAST(222.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'091                   ', CAST(0.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'1123                  ', CAST(0.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'123478                ', CAST(0.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'8817                  ', CAST(2222.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'888                   ', CAST(2.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'91923                 ', CAST(23.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'9901                  ', CAST(222.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'9911                  ', CAST(0.000 AS Decimal(10, 3)))
-INSERT [dbo].[User] ([Id], [Balance]) VALUES (N'9999                  ', CAST(0.000 AS Decimal(10, 3)))
-GO
-
-INSERT [dbo].[Staff] ([Id], [FullName], [DayOfBirth], [State], [DayOfWork], [DayOff]) VALUES (N'83129                 ', N'Nguyễn Minh', CAST(N'2023-10-14T23:47:19.760' AS DateTime), 1, CAST(N'2023-10-14T23:47:19.760' AS DateTime), CAST(N'2023-10-14T23:47:19.760' AS DateTime))
-GO
-
 SET IDENTITY_INSERT [dbo].[PlayTimeManagement] ON 
 
 INSERT [dbo].[PlayTimeManagement] ([Id], [IdOfUser], [IdOfComputer], [StartTime], [EndTime]) VALUES (1, N'003                   ', 13, CAST(N'2023-10-18T22:35:22.563' AS DateTime), CAST(N'2023-10-18T22:38:53.733' AS DateTime))
@@ -275,11 +281,5 @@ INSERT [dbo].[PlayTimeManagement] ([Id], [IdOfUser], [IdOfComputer], [StartTime]
 INSERT [dbo].[PlayTimeManagement] ([Id], [IdOfUser], [IdOfComputer], [StartTime], [EndTime]) VALUES (7, N'003                   ', 13, CAST(N'2023-10-18T22:52:03.333' AS DateTime), CAST(N'2023-10-18T22:52:32.517' AS DateTime))
 SET IDENTITY_INSERT [dbo].[PlayTimeManagement] OFF
 GO
-
-SET ANSI_PADDING ON
+INSERT [dbo].[TypeOfDish] ([Name]) VALUES (N'nước uống')
 GO
-
-
-
-
-

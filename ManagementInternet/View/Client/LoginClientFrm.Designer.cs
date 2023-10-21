@@ -113,7 +113,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "LoginClientFrm";
-            this.Text = "Đổi nhân viên";
+            this.Text = "Đăng nhập";
             this.ResumeLayout(false);
             this.PerformLayout();
 

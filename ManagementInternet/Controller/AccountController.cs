@@ -22,7 +22,7 @@ namespace ManagementInternet.Controller
             return context.Accounts.Where(account => account.RoleId == 1).ToList();
         }
 
-        public bool getById(string id)
+        public bool checkDuplicaton(string id)
         {
             using (InternetManagementContextDB context = new InternetManagementContextDB())
             {

@@ -12,8 +12,7 @@ namespace ManagementInternet.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            OrderLists = new HashSet<OrderList>();
-            OrderLists1 = new HashSet<OrderList>();
+            PlayTimeManagements = new HashSet<PlayTimeManagement>();
         }
 
         public int Id { get; set; }
@@ -29,14 +28,17 @@ namespace ManagementInternet.Models.Entities
 
         public DateTime CreateAt { get; set; }
 
+        public bool Status { get; set; }
+
+        [Column(TypeName = "text")]
+        [Required]
+        public string Note { get; set; }
+
         public virtual Computer Computer { get; set; }
 
         public virtual Dish Dish { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderList> OrderLists { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderList> OrderLists1 { get; set; }
+        public virtual ICollection<PlayTimeManagement> PlayTimeManagements { get; set; }
     }
 }

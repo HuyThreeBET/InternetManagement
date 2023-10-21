@@ -9,14 +9,12 @@ namespace ManagementInternet.View.Working
     public partial class AddPlayerFrm : Form
     {
         private CyberManagementFrm cyberManagementFrm;
-        private AccountController accountController;
         private UserController userController;
 
         public AddPlayerFrm(CyberManagementFrm cyberManagementFrm)
         {
             this.cyberManagementFrm = cyberManagementFrm;
             this.userController = new UserController();
-            this.accountController = new AccountController();
 
             InitializeComponent();
         }
@@ -45,7 +43,7 @@ namespace ManagementInternet.View.Working
                 return false;
             }
 
-            if (this.accountController.getById(this.txtIdCard.Text))
+            if (this.cyberManagementFrm.AccountController.checkDuplicaton(this.txtIdCard.Text))
             {
                 this.error.SetError(this.txtIdCard, "*");
                 MessageBox.Show("Trùng căn cước công dân");
@@ -89,7 +87,7 @@ namespace ManagementInternet.View.Working
             account.CreateAt = DateTime.Now;
             account.RoleId = 1;
 
-            this.accountController.modify(account);
+            this.cyberManagementFrm.AccountController.modify(account);
             this.userController.modify(user);
 
             MessageBox.Show("Thêm hội viên thành công");
@@ -105,7 +103,7 @@ namespace ManagementInternet.View.Working
             add();
             setDefaultTextAddingPlayerTab();
 
-            List<Account> accounts = this.accountController.getAllUser();
+            List<Account> accounts = this.cyberManagementFrm.AccountController.getAllUser();
             this.cyberManagementFrm.getDataIntoDgv();
         }
 

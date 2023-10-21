@@ -1,5 +1,6 @@
 ﻿using ManagementInternet.Controller;
 using ManagementInternet.Models.Entities;
+using ManagementInternet.View.Working.Management;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,23 +10,28 @@ namespace ManagementInternet.View.Working
     public partial class CyberManagementFrm : Form
     {
         private AccountController accountController;
-        private UserController userController;
         private ComputerController computerController;
+        private LoginFrm loginFrm;
 
-        public CyberManagementFrm()
-        { 
-            this.accountController = new AccountController();
-            this.userController = new UserController();
+        internal AccountController AccountController { get => accountController; set => accountController = value; }
+        public LoginFrm LoginFrm { get => loginFrm; set => loginFrm = value; }
+
+        public CyberManagementFrm(LoginFrm loginFrm)
+        {
+            this.AccountController = new AccountController();
             this.computerController = new ComputerController();
+            this.LoginFrm = loginFrm;
 
             InitializeComponent();
+            this.LoginFrm = loginFrm;
         }
 
+        // Bring client data into dgv
         public void getDataIntoDgv()
         {
             this.dgvPlayerManagement.Rows.Clear();
 
-            List<Account> accounts = this.accountController.getAllUser();
+            List<Account> accounts = this.AccountController.getAllUser();
 
             foreach (Account account in accounts)
             {
@@ -51,7 +57,8 @@ namespace ManagementInternet.View.Working
         {
             List<Computer> computers = this.computerController.getAll();
 
-            foreach (Computer computer in computers) { 
+            foreach (Computer computer in computers)
+            {
                 int index = this.dvgDisplayComputer.Rows.Add();
 
                 this.dvgDisplayComputer.Rows[index].Cells[0].Value = "Máy số " + computer.Id.ToString();
@@ -77,6 +84,18 @@ namespace ManagementInternet.View.Working
         {
             AddPlayerFrm addPlayerFrm = new AddPlayerFrm(this);
             addPlayerFrm.ShowDialog();
+        }
+
+        private void ToolStripMenuItemService_Click(object sender, EventArgs e)
+        {
+            Service service = new Service();
+            service.Show();
+        }
+
+        private void ToolStripMenuItemChangePassword_Click(object sender, EventArgs e)
+        {
+            ChangePasswordFrm changePasswordFrm = new ChangePasswordFrm(this);  
+            changePasswordFrm.ShowDialog();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ManagementInternet.Controller;
+using ManagementInternet.Function;
 using ManagementInternet.Models.Entities;
 using System;
 using System.Windows.Forms;
@@ -9,6 +10,7 @@ namespace ManagementInternet.View.Client
     {
         private AccountController accountController;
         private UserController userControlelr;
+        private Helper helper;
         private ComputersFrm computersFrm;
         private Account account;
         private User user;
@@ -18,11 +20,14 @@ namespace ManagementInternet.View.Client
         public User User { get => user; set => user = value; }
         public ComputersFrm ComputersFrm { get => computersFrm; set => computersFrm = value; }
         public PlayTimeManagement PlayTimeManagement { get => playTimeManagement; set => playTimeManagement = value; }
+        internal UserController UserControlelr { get => userControlelr; set => userControlelr = value; }
+        internal Helper Helper { get => helper; set => helper = value; }
 
         public LoginClientFrm(ComputersFrm computersFrm)
         {
             this.accountController = new AccountController();
-            this.userControlelr = new UserController(); 
+            this.UserControlelr = new UserController();
+            this.Helper = new Helper();
             this.ComputersFrm = computersFrm;
             this.Account = null;
             this.user = null;
@@ -40,12 +45,35 @@ namespace ManagementInternet.View.Client
 
         private void loggin()
         {
-            this.Account = this.accountController.getByAccountName(this.txtAccountName.Text);
+            string accountNameTxt = this.txtAccountName.Text;
 
-            if (this.Account != null && this.txtPassword.Text.Equals(this.txtPassword.Text) && this.Account.RoleId == 1)
+            this.Account = this.accountController.getByAccountName(accountNameTxt);
+
+            if (this.Account == null)
             {
-                this.user = this.userControlelr.getByAccountname(this.txtAccountName.Text); 
-               
+                this.txtPassword.Text = string.Empty;
+                return;
+            }
+
+            string passwordTxt = this.txtPassword.Text;
+            string passwordFromDB = this.Account.Passowrd;
+            string password = Helper.transferPassword(passwordFromDB);
+
+            if (password.Equals(passwordTxt) && this.Account.RoleId == 1)
+            {
+                this.user = this.UserControlelr.getByAccountname(accountNameTxt);
+
+                if (this.user.Balance < 1)
+                {
+                    MessageBox.Show("Tài khoản của bạn không đủ");
+                    return;
+                }
+
+                /* When logged in successfully, 
+                a table will be created to track when the machine is playing 
+                and when it is turned off
+                It will end up in MainScreenFrm
+                */
                 createPlayTimeManagement();
 
                 MainScreenFrm mainScreenFrm = new MainScreenFrm(this);

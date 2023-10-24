@@ -108,6 +108,7 @@
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\ComputerController.cs" />
     <Compile Include="Controller\DishController.cs" />
+    <Compile Include="Controller\StaffController.cs" />
     <Compile Include="Controller\TypeOfDishController.cs" />
     <Compile Include="Controller\PlayTimeManagementController.cs" />
     <Compile Include="Controller\UserController.cs" />
@@ -165,6 +166,18 @@
     <Compile Include="View\Client\LoginClientFrm.Designer.cs">
       <DependentUpon>LoginClientFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Working\EmployeeManagement\AddStaffFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Working\EmployeeManagement\AddStaffFrm.Designer.cs">
+      <DependentUpon>AddStaffFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Working\EmployeeManagement\InfomationStaffFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Working\EmployeeManagement\InfomationStaffFrm.Designer.cs">
+      <DependentUpon>InfomationStaffFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Working\LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,7 +227,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Working\EmployeeManagement\AddStaffFrm.resx">
+      <DependentUpon>AddStaffFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Working\EmployeeManagement\InfomationStaffFrm.resx">
+      <DependentUpon>InfomationStaffFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Working\LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +261,11 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="AddtionalFiles\Sql.txt" />
+    <None Include="Resources\z4811306491208_41aab65238820f54e4cec5b62681e956.jpg" />
+    <None Include="Resources\CyberX.jpg" />
+    <None Include="Resources\thêmNV.jpg" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\them.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

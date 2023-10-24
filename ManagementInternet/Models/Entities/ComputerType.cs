@@ -12,7 +12,7 @@ namespace ManagementInternet.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ComputerType()
         {
-            Computers = new HashSet<Computer>();
+            Computer = new HashSet<Computer>();
         }
 
         public short Id { get; set; }
@@ -24,6 +24,6 @@ namespace ManagementInternet.Models.Entities
         public short Price { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Computer> Computers { get; set; }
+        public virtual ICollection<Computer> Computer { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace ManagementInternet.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeOfDish()
         {
-            Dishes = new HashSet<Dish>();
+            Dish = new HashSet<Dish>();
         }
 
         [Key]
@@ -20,6 +20,6 @@ namespace ManagementInternet.Models.Entities
         public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dish> Dishes { get; set; }
+        public virtual ICollection<Dish> Dish { get; set; }
     }
 }

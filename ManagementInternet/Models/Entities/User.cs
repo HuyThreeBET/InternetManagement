@@ -12,7 +12,7 @@ namespace ManagementInternet.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            PlayTimeManagements = new HashSet<PlayTimeManagement>();
+            PlayTimeManagement = new HashSet<PlayTimeManagement>();
         }
 
         [StringLength(22)]
@@ -23,6 +23,6 @@ namespace ManagementInternet.Models.Entities
         public virtual Account Account { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PlayTimeManagement> PlayTimeManagements { get; set; }
+        public virtual ICollection<PlayTimeManagement> PlayTimeManagement { get; set; }
     }
 }

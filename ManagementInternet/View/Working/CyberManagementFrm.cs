@@ -1,5 +1,6 @@
 ﻿using ManagementInternet.Controller;
 using ManagementInternet.Models.Entities;
+using ManagementInternet.View.Working.EmployeeManagement;
 using ManagementInternet.View.Working.Management;
 using System;
 using System.Collections.Generic;
@@ -96,6 +97,26 @@ namespace ManagementInternet.View.Working
         {
             ChangePasswordFrm changePasswordFrm = new ChangePasswordFrm(this);  
             changePasswordFrm.ShowDialog();
+        }
+
+        
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            LoginFrm lg = new LoginFrm();
+            lg.ShowDialog();
+        }
+
+        private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddStaffFrm st = new AddStaffFrm(this);
+            st.ShowDialog();
+        }
+
+        private void thayĐổiThôngTinNhânVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfomationStaffFrm st = new InfomationStaffFrm();
+            st.ShowDialog();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ManagementInternet.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Dish()
         {
-            Orders = new HashSet<Order>();
+            Order = new HashSet<Order>();
         }
 
         [Key]
@@ -34,6 +34,6 @@ namespace ManagementInternet.Models.Entities
         public virtual TypeOfDish TypeOfDish { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

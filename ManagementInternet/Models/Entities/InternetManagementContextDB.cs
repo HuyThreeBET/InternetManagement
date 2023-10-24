@@ -8,7 +8,7 @@ namespace ManagementInternet.Models.Entities
     public partial class InternetManagementContextDB : DbContext
     {
         public InternetManagementContextDB()
-            : base("name=InternetManagementContextDB")
+            : base("name=InternetManagementContextDB2")
         {
         }
 
@@ -49,24 +49,24 @@ namespace ManagementInternet.Models.Entities
                 .WithRequired(e => e.Account);
 
             modelBuilder.Entity<Computer>()
-                .HasMany(e => e.Orders)
+                .HasMany(e => e.Order)
                 .WithRequired(e => e.Computer)
                 .HasForeignKey(e => e.IdOfComputer)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Computer>()
-                .HasMany(e => e.PlayTimeManagements)
+                .HasMany(e => e.PlayTimeManagement)
                 .WithRequired(e => e.Computer)
                 .HasForeignKey(e => e.IdOfComputer)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ComputerType>()
-                .HasMany(e => e.Computers)
+                .HasMany(e => e.Computer)
                 .WithOptional(e => e.ComputerType1)
                 .HasForeignKey(e => e.ComputerType);
 
             modelBuilder.Entity<Dish>()
-                .HasMany(e => e.Orders)
+                .HasMany(e => e.Order)
                 .WithOptional(e => e.Dish)
                 .HasForeignKey(e => e.NameOfDish);
 
@@ -80,12 +80,12 @@ namespace ManagementInternet.Models.Entities
                 .IsUnicode(false);
 
             modelBuilder.Entity<PlayTimeManagement>()
-                .HasMany(e => e.Orders)
-                .WithMany(e => e.PlayTimeManagements)
+                .HasMany(e => e.Order)
+                .WithMany(e => e.PlayTimeManagement)
                 .Map(m => m.ToTable("OrderList").MapLeftKey("Id").MapRightKey("IdOfOrder"));
 
             modelBuilder.Entity<Role>()
-                .HasMany(e => e.Accounts)
+                .HasMany(e => e.Account)
                 .WithRequired(e => e.Role)
                 .WillCascadeOnDelete(false);
 
@@ -95,7 +95,7 @@ namespace ManagementInternet.Models.Entities
                 .IsUnicode(false);
 
             modelBuilder.Entity<TypeOfDish>()
-                .HasMany(e => e.Dishes)
+                .HasMany(e => e.Dish)
                 .WithRequired(e => e.TypeOfDish)
                 .HasForeignKey(e => e.Type)
                 .WillCascadeOnDelete(false);
@@ -110,7 +110,7 @@ namespace ManagementInternet.Models.Entities
                 .HasPrecision(10, 3);
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.PlayTimeManagements)
+                .HasMany(e => e.PlayTimeManagement)
                 .WithRequired(e => e.User)
                 .HasForeignKey(e => e.IdOfUser)
                 .WillCascadeOnDelete(false);

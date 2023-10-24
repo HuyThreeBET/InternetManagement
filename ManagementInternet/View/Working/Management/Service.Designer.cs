@@ -60,8 +60,8 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.tabPageServiceManagement = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTypeNameM = new System.Windows.Forms.TextBox();
             this.btnCancelM = new System.Windows.Forms.Button();
-            this.btnCancelServiceM = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnDeleteM = new System.Windows.Forms.Button();
             this.txtNameM = new System.Windows.Forms.TextBox();
@@ -76,8 +76,8 @@
             this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCancelServiceM = new System.Windows.Forms.Button();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtTypeNameM = new System.Windows.Forms.TextBox();
             this.btnRecancelServiceM = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.tabControlDishManagement.SuspendLayout();
@@ -297,7 +297,7 @@
             // 
             // btnCancelAdding
             // 
-            this.btnCancelAdding.Location = new System.Drawing.Point(121, 431);
+            this.btnCancelAdding.Location = new System.Drawing.Point(121, 441);
             this.btnCancelAdding.Name = "btnCancelAdding";
             this.btnCancelAdding.Size = new System.Drawing.Size(97, 29);
             this.btnCancelAdding.TabIndex = 10;
@@ -315,7 +315,7 @@
             // 
             // btnAddService
             // 
-            this.btnAddService.Location = new System.Drawing.Point(224, 431);
+            this.btnAddService.Location = new System.Drawing.Point(224, 441);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(97, 29);
             this.btnAddService.TabIndex = 5;
@@ -363,7 +363,7 @@
             this.pictureBox.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureBox.Location = new System.Drawing.Point(121, 245);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(213, 148);
+            this.pictureBox.Size = new System.Drawing.Size(186, 190);
             this.pictureBox.TabIndex = 7;
             this.pictureBox.TabStop = false;
             // 
@@ -425,6 +425,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thêm dịch vụ";
             // 
+            // txtTypeNameM
+            // 
+            this.txtTypeNameM.Location = new System.Drawing.Point(113, 109);
+            this.txtTypeNameM.Name = "txtTypeNameM";
+            this.txtTypeNameM.ReadOnly = true;
+            this.txtTypeNameM.Size = new System.Drawing.Size(221, 24);
+            this.txtTypeNameM.TabIndex = 12;
+            // 
             // btnCancelM
             // 
             this.btnCancelM.Location = new System.Drawing.Point(113, 389);
@@ -434,17 +442,6 @@
             this.btnCancelM.Text = "Hủy";
             this.btnCancelM.UseVisualStyleBackColor = true;
             this.btnCancelM.Click += new System.EventHandler(this.btnCancelM_Click);
-            // 
-            // btnCancelServiceM
-            // 
-            this.btnCancelServiceM.Enabled = false;
-            this.btnCancelServiceM.Location = new System.Drawing.Point(16, 576);
-            this.btnCancelServiceM.Name = "btnCancelServiceM";
-            this.btnCancelServiceM.Size = new System.Drawing.Size(132, 30);
-            this.btnCancelServiceM.TabIndex = 10;
-            this.btnCancelServiceM.Text = "Hủy phục vụ";
-            this.btnCancelServiceM.UseVisualStyleBackColor = true;
-            this.btnCancelServiceM.Click += new System.EventHandler(this.btnCancelService_Click);
             // 
             // label7
             // 
@@ -497,7 +494,7 @@
             this.pBM.BackColor = System.Drawing.Color.LightGray;
             this.pBM.Location = new System.Drawing.Point(113, 214);
             this.pBM.Name = "pBM";
-            this.pBM.Size = new System.Drawing.Size(221, 148);
+            this.pBM.Size = new System.Drawing.Size(183, 169);
             this.pBM.TabIndex = 7;
             this.pBM.TabStop = false;
             // 
@@ -572,17 +569,20 @@
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
             // 
+            // btnCancelServiceM
+            // 
+            this.btnCancelServiceM.Enabled = false;
+            this.btnCancelServiceM.Location = new System.Drawing.Point(16, 576);
+            this.btnCancelServiceM.Name = "btnCancelServiceM";
+            this.btnCancelServiceM.Size = new System.Drawing.Size(132, 30);
+            this.btnCancelServiceM.TabIndex = 10;
+            this.btnCancelServiceM.Text = "Hủy phục vụ";
+            this.btnCancelServiceM.UseVisualStyleBackColor = true;
+            this.btnCancelServiceM.Click += new System.EventHandler(this.btnCancelService_Click);
+            // 
             // error
             // 
             this.error.ContainerControl = this;
-            // 
-            // txtTypeNameM
-            // 
-            this.txtTypeNameM.Location = new System.Drawing.Point(113, 109);
-            this.txtTypeNameM.Name = "txtTypeNameM";
-            this.txtTypeNameM.ReadOnly = true;
-            this.txtTypeNameM.Size = new System.Drawing.Size(221, 24);
-            this.txtTypeNameM.TabIndex = 12;
             // 
             // btnRecancelServiceM
             // 

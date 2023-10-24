@@ -8,7 +8,7 @@ namespace ManagementInternet.Models.Entities
     public partial class InternetManagementContextDB : DbContext
     {
         public InternetManagementContextDB()
-            : base("name=InternetManagementContextDB")
+            : base("name=InternetManagementContextDB2")
         {
         }
 
@@ -20,6 +20,7 @@ namespace ManagementInternet.Models.Entities
         public virtual DbSet<PlayTimeManagement> PlayTimeManagements { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfDish> TypeOfDishes { get; set; }
         public virtual DbSet<User> Users { get; set; }
 

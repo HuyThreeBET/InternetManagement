@@ -121,6 +121,7 @@
     <Compile Include="Models\Entities\PlayTimeManagement.cs" />
     <Compile Include="Models\Entities\Role.cs" />
     <Compile Include="Models\Entities\Staff.cs" />
+    <Compile Include="Models\Entities\sysdiagram.cs" />
     <Compile Include="Models\Entities\TypeOfDish.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="View\Client\ChangingPasswordFrm.cs">
@@ -179,6 +180,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Working\Management\RevenueFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Working\Management\RevenueFrm.Designer.cs">
+      <DependentUpon>RevenueFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Working\Management\Service.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\WelcomeFrm.resx">
       <DependentUpon>WelcomeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Working\Management\RevenueFrm.resx">
+      <DependentUpon>RevenueFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Working\Management\Service.resx">
       <DependentUpon>Service.cs</DependentUpon>

@@ -97,5 +97,11 @@ namespace ManagementInternet.View.Working
             ChangePasswordFrm changePasswordFrm = new ChangePasswordFrm(this);  
             changePasswordFrm.ShowDialog();
         }
+
+        private void ToolStripMenuItemRevenue_Click(object sender, EventArgs e)
+        {
+            RevenueFrm revenueFrm = new RevenueFrm();
+            revenueFrm.ShowDialog();
+        }
     }
 }

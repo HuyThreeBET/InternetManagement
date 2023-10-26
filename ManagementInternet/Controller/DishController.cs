@@ -9,46 +9,48 @@ namespace ManagementInternet.Controller
     {
         public List<Dish> getAll()
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                return context.Dishes.ToList();
-            }
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            return context.Dishes.ToList();
+        }
+
+        public List<Dish> getAllWithStatusTrue()
+        {
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            return context.Dishes.Where(dish => dish.State == true).ToList();
         }
 
         public List<Dish> getAllByTypeOfService(string typeOfService)
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                return context.Dishes.Where(type => type.Type.Equals(typeOfService)).ToList();
-            }
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            return context.Dishes.Where(type => type.Type.Equals(typeOfService)).ToList();
         }
 
         public void modify(Dish dish)
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                context.Dishes.AddOrUpdate(dish);
-                context.SaveChanges();
-            }
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            context.Dishes.AddOrUpdate(dish);
+            context.SaveChanges();
         }
 
         public void delete(string name)
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                Dish dish = context.Dishes.FirstOrDefault(service => service.Name.Equals(name));
+            InternetManagementContextDB context = new InternetManagementContextDB();
 
-                context.Dishes.Remove(dish);
-                context.SaveChanges();
-            }
+            Dish dish = context.Dishes.FirstOrDefault(service => service.Name.Equals(name));
+
+            context.Dishes.Remove(dish);
+            context.SaveChanges();
         }
 
         public Dish getByName(string name)
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                return context.Dishes.FirstOrDefault(dish => dish.Name.Equals(name));    
-            }
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            return context.Dishes.FirstOrDefault(dish => dish.Name.Equals(name));
         }
     }
 }

@@ -8,11 +8,10 @@ namespace ManagementInternet.Controller
     {
         public void modify(PlayTimeManagement playTimeManagement)
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                context.PlayTimeManagements.AddOrUpdate(playTimeManagement);
-                context.SaveChanges();
-            }
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            context.PlayTimeManagements.AddOrUpdate(playTimeManagement);
+            context.SaveChanges();
         }
     }
 }

@@ -24,28 +24,36 @@ namespace ManagementInternet.Controller
 
         public bool checkDuplicaton(string id)
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                Account account = context.Accounts.FirstOrDefault(ac => ac.Id.Equals(id));
-                
-                return account != null;
-            }
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            Account account = context.Accounts.FirstOrDefault(ac => ac.Id.Equals(id));
+
+            return account != null;
         }
 
         public Account getByAccountName(string accountName)
         {
-            using (InternetManagementContextDB context = new InternetManagementContextDB())
-            {
-                Account account = context.Accounts.FirstOrDefault(ac => ac.AccountName.Equals(accountName));
-                
-                return account;
-            }
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            Account account = context.Accounts.FirstOrDefault(ac => ac.AccountName.Equals(accountName));
+
+            return account;
         }
 
-        public void modify(Account obj)
+        public Account getById(string id)
         {
             InternetManagementContextDB context = new InternetManagementContextDB();
-            context.Accounts.AddOrUpdate(obj);
+
+            Account account = context.Accounts.FirstOrDefault(ac => ac.Id.Equals(id));
+
+            return account;
+        }
+
+        public void modify(Account account)
+        {
+            InternetManagementContextDB context = new InternetManagementContextDB();
+
+            context.Accounts.AddOrUpdate(account);
             context.SaveChanges();
         }
     }

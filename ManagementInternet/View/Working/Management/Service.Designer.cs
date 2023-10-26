@@ -409,8 +409,10 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtTypeNameM);
+            this.groupBox4.Controls.Add(this.btnRecancelServiceM);
             this.groupBox4.Controls.Add(this.btnCancelM);
             this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.btnCancelServiceM);
             this.groupBox4.Controls.Add(this.btnDeleteM);
             this.groupBox4.Controls.Add(this.txtNameM);
             this.groupBox4.Controls.Add(this.label8);
@@ -572,7 +574,7 @@
             // btnCancelServiceM
             // 
             this.btnCancelServiceM.Enabled = false;
-            this.btnCancelServiceM.Location = new System.Drawing.Point(16, 576);
+            this.btnCancelServiceM.Location = new System.Drawing.Point(6, 436);
             this.btnCancelServiceM.Name = "btnCancelServiceM";
             this.btnCancelServiceM.Size = new System.Drawing.Size(132, 30);
             this.btnCancelServiceM.TabIndex = 10;
@@ -587,7 +589,7 @@
             // btnRecancelServiceM
             // 
             this.btnRecancelServiceM.Enabled = false;
-            this.btnRecancelServiceM.Location = new System.Drawing.Point(224, 576);
+            this.btnRecancelServiceM.Location = new System.Drawing.Point(164, 442);
             this.btnRecancelServiceM.Name = "btnRecancelServiceM";
             this.btnRecancelServiceM.Size = new System.Drawing.Size(132, 30);
             this.btnRecancelServiceM.TabIndex = 14;
@@ -611,9 +613,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 629);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnRecancelServiceM);
             this.Controls.Add(this.tabControlDishManagement);
-            this.Controls.Add(this.btnCancelServiceM);
             this.Name = "Service";
             this.Text = "Service";
             this.Load += new System.EventHandler(this.Service_Load);

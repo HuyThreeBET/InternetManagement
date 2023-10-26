@@ -29,20 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CyberManagementFrm));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStripHeader = new System.Windows.Forms.MenuStrip();
             this.chucNangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
-            this.quanLyNhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemStaffManagement = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemChangeStaffInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAddStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemShowStaffStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemService = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLoggout = new System.Windows.Forms.ToolStripMenuItem();
-            this.heThongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baoCaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemRevenueStatistics = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemRevenue = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRefesh = new System.Windows.Forms.ToolStripMenuItem();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonAddPlayer = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonLogout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.tabPlayerAccount = new System.Windows.Forms.TabPage();
             this.dgvPlayerManagement = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,43 +62,37 @@
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain = new System.Windows.Forms.TabControl();
-            this.tabOrder = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colFoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceOfFood = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.menuStripHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.tabPlayerAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayerManagement)).BeginInit();
             this.tabConputerStatusManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayComputer)).BeginInit();
             this.tabMain.SuspendLayout();
-            this.tabOrder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripHeader
             // 
+            this.menuStripHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.menuStripHeader.AutoSize = false;
-            this.menuStripHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.menuStripHeader.BackColor = System.Drawing.Color.Silver;
+            this.menuStripHeader.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStripHeader.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuStripHeader.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStripHeader.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStripHeader.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chucNangToolStripMenuItem,
-            this.heThongToolStripMenuItem,
-            this.baoCaoToolStripMenuItem,
-            this.doanhThuToolStripMenuItem});
-            this.menuStripHeader.Location = new System.Drawing.Point(0, 0);
+            this.ToolStripMenuItemRevenueStatistics,
+            this.toolStripMenuItemRefesh});
+            this.menuStripHeader.Location = new System.Drawing.Point(-6, 0);
             this.menuStripHeader.Name = "menuStripHeader";
             this.menuStripHeader.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStripHeader.Size = new System.Drawing.Size(1106, 28);
+            this.menuStripHeader.Size = new System.Drawing.Size(1121, 28);
             this.menuStripHeader.TabIndex = 1;
             this.menuStripHeader.Text = "menuStrip1";
             // 
@@ -100,10 +100,9 @@
             // 
             this.chucNangToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemAddPlayer,
-            this.quanLyNhanVienToolStripMenuItem,
+            this.ToolStripMenuItemStaffManagement,
             this.ToolStripMenuItemChangePassword,
             this.ToolStripMenuItemService,
-            this.thôngTinKháchHàngToolStripMenuItem,
             this.toolStripMenuItemLoggout});
             this.chucNangToolStripMenuItem.Name = "chucNangToolStripMenuItem";
             this.chucNangToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
@@ -116,11 +115,36 @@
             this.toolStripMenuItemAddPlayer.Text = "Thêm hội viên/Nạp tiền";
             this.toolStripMenuItemAddPlayer.Click += new System.EventHandler(this.toolStripMenuItemAddPlayer_Click);
             // 
-            // quanLyNhanVienToolStripMenuItem
+            // ToolStripMenuItemStaffManagement
             // 
-            this.quanLyNhanVienToolStripMenuItem.Name = "quanLyNhanVienToolStripMenuItem";
-            this.quanLyNhanVienToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.quanLyNhanVienToolStripMenuItem.Text = "Quản lý nhân viên";
+            this.ToolStripMenuItemStaffManagement.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemChangeStaffInfo,
+            this.ToolStripMenuItemAddStaff,
+            this.toolStripMenuItemShowStaffStatus});
+            this.ToolStripMenuItemStaffManagement.Name = "ToolStripMenuItemStaffManagement";
+            this.ToolStripMenuItemStaffManagement.Size = new System.Drawing.Size(248, 26);
+            this.ToolStripMenuItemStaffManagement.Text = "Quản lý nhân viên";
+            // 
+            // ToolStripMenuItemChangeStaffInfo
+            // 
+            this.ToolStripMenuItemChangeStaffInfo.Name = "ToolStripMenuItemChangeStaffInfo";
+            this.ToolStripMenuItemChangeStaffInfo.Size = new System.Drawing.Size(280, 26);
+            this.ToolStripMenuItemChangeStaffInfo.Text = "Thay đổi thông tin nhân viên";
+            this.ToolStripMenuItemChangeStaffInfo.Click += new System.EventHandler(this.ToolStripMenuItemChangeStaffInfo_Click);
+            // 
+            // ToolStripMenuItemAddStaff
+            // 
+            this.ToolStripMenuItemAddStaff.Name = "ToolStripMenuItemAddStaff";
+            this.ToolStripMenuItemAddStaff.Size = new System.Drawing.Size(280, 26);
+            this.ToolStripMenuItemAddStaff.Text = "Thêm nhân viên";
+            this.ToolStripMenuItemAddStaff.Click += new System.EventHandler(this.ToolStripMenuItemAddStaff_Click);
+            // 
+            // toolStripMenuItemShowStaffStatus
+            // 
+            this.toolStripMenuItemShowStaffStatus.Name = "toolStripMenuItemShowStaffStatus";
+            this.toolStripMenuItemShowStaffStatus.Size = new System.Drawing.Size(280, 26);
+            this.toolStripMenuItemShowStaffStatus.Text = "Xem thông tin nhân viên";
+            this.toolStripMenuItemShowStaffStatus.Click += new System.EventHandler(this.toolStripMenuItemShowStaffStatus_Click);
             // 
             // ToolStripMenuItemChangePassword
             // 
@@ -136,48 +160,88 @@
             this.ToolStripMenuItemService.Text = "Dịch vụ";
             this.ToolStripMenuItemService.Click += new System.EventHandler(this.ToolStripMenuItemService_Click);
             // 
-            // thôngTinKháchHàngToolStripMenuItem
-            // 
-            this.thôngTinKháchHàngToolStripMenuItem.Name = "thôngTinKháchHàngToolStripMenuItem";
-            this.thôngTinKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.thôngTinKháchHàngToolStripMenuItem.Text = "Thông tin khách hàng";
-            // 
             // toolStripMenuItemLoggout
             // 
             this.toolStripMenuItemLoggout.Name = "toolStripMenuItemLoggout";
             this.toolStripMenuItemLoggout.Size = new System.Drawing.Size(248, 26);
             this.toolStripMenuItemLoggout.Text = "Đăng xuất";
             // 
-            // heThongToolStripMenuItem
+            // ToolStripMenuItemRevenueStatistics
             // 
-            this.heThongToolStripMenuItem.Name = "heThongToolStripMenuItem";
-            this.heThongToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
-            this.heThongToolStripMenuItem.Text = "Hệ thống";
-            // 
-            // baoCaoToolStripMenuItem
-            // 
-            this.baoCaoToolStripMenuItem.Name = "baoCaoToolStripMenuItem";
-            this.baoCaoToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
-            this.baoCaoToolStripMenuItem.Text = "Báo cáo";
-            // 
-            // doanhThuToolStripMenuItem
-            // 
-            this.doanhThuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemRevenueStatistics.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemRevenue});
-            this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
-            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
-            this.doanhThuToolStripMenuItem.Text = "Doanh thu";
+            this.ToolStripMenuItemRevenueStatistics.Name = "ToolStripMenuItemRevenueStatistics";
+            this.ToolStripMenuItemRevenueStatistics.Size = new System.Drawing.Size(92, 24);
+            this.ToolStripMenuItemRevenueStatistics.Text = "Doanh thu";
             // 
             // ToolStripMenuItemRevenue
             // 
             this.ToolStripMenuItemRevenue.Name = "ToolStripMenuItemRevenue";
-            this.ToolStripMenuItemRevenue.Size = new System.Drawing.Size(224, 26);
+            this.ToolStripMenuItemRevenue.Size = new System.Drawing.Size(191, 26);
             this.ToolStripMenuItemRevenue.Text = "Tính doanh thu";
             this.ToolStripMenuItemRevenue.Click += new System.EventHandler(this.ToolStripMenuItemRevenue_Click);
+            // 
+            // toolStripMenuItemRefesh
+            // 
+            this.toolStripMenuItemRefesh.Name = "toolStripMenuItemRefesh";
+            this.toolStripMenuItemRefesh.Size = new System.Drawing.Size(81, 24);
+            this.toolStripMenuItemRefesh.Text = "Làm mới";
+            this.toolStripMenuItemRefesh.Click += new System.EventHandler(this.toolStripMenuItemRefesh_Click);
             // 
             // error
             // 
             this.error.ContainerControl = this;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackColor = System.Drawing.Color.White;
+            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonAddPlayer,
+            this.toolStripButtonLogout});
+            this.toolStrip1.Location = new System.Drawing.Point(-6, 28);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1121, 41);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonAddPlayer
+            // 
+            this.toolStripButtonAddPlayer.Image = global::ManagementInternet.Properties.Resources.thêmNV;
+            this.toolStripButtonAddPlayer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddPlayer.Name = "toolStripButtonAddPlayer";
+            this.toolStripButtonAddPlayer.Size = new System.Drawing.Size(126, 38);
+            this.toolStripButtonAddPlayer.Text = "Thêm hội viên";
+            this.toolStripButtonAddPlayer.Click += new System.EventHandler(this.toolStripButtonAddPlayer_Click);
+            // 
+            // toolStripButtonLogout
+            // 
+            this.toolStripButtonLogout.Image = global::ManagementInternet.Properties.Resources.logout;
+            this.toolStripButtonLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLogout.Name = "toolStripButtonLogout";
+            this.toolStripButtonLogout.Size = new System.Drawing.Size(101, 38);
+            this.toolStripButtonLogout.Text = "Đăng xuất";
+            this.toolStripButtonLogout.Click += new System.EventHandler(this.toolStripButtonLogout_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton3.AutoSize = false;
+            this.toolStripButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Enabled = false;
+            this.toolStripButton3.Image = global::ManagementInternet.Properties.Resources.z4811306491208_41aab65238820f54e4cec5b62681e956;
+            this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.MediumSlateBlue;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolStripButton3.Size = new System.Drawing.Size(176, 38);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // tabPlayerAccount
             // 
@@ -185,7 +249,7 @@
             this.tabPlayerAccount.Location = new System.Drawing.Point(4, 27);
             this.tabPlayerAccount.Name = "tabPlayerAccount";
             this.tabPlayerAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlayerAccount.Size = new System.Drawing.Size(1059, 501);
+            this.tabPlayerAccount.Size = new System.Drawing.Size(1113, 515);
             this.tabPlayerAccount.TabIndex = 2;
             this.tabPlayerAccount.Text = "Tài khoản người chơi";
             this.tabPlayerAccount.UseVisualStyleBackColor = true;
@@ -204,7 +268,7 @@
             this.dgvPlayerManagement.Name = "dgvPlayerManagement";
             this.dgvPlayerManagement.RowHeadersWidth = 51;
             this.dgvPlayerManagement.RowTemplate.Height = 24;
-            this.dgvPlayerManagement.Size = new System.Drawing.Size(1047, 489);
+            this.dgvPlayerManagement.Size = new System.Drawing.Size(1095, 489);
             this.dgvPlayerManagement.TabIndex = 0;
             // 
             // colId
@@ -248,7 +312,7 @@
             this.tabConputerStatusManagement.Location = new System.Drawing.Point(4, 27);
             this.tabConputerStatusManagement.Name = "tabConputerStatusManagement";
             this.tabConputerStatusManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConputerStatusManagement.Size = new System.Drawing.Size(1059, 501);
+            this.tabConputerStatusManagement.Size = new System.Drawing.Size(1113, 515);
             this.tabConputerStatusManagement.TabIndex = 1;
             this.tabConputerStatusManagement.Text = "Quản lí máy";
             this.tabConputerStatusManagement.UseVisualStyleBackColor = true;
@@ -259,22 +323,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgDisplayComputer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dvgDisplayComputer.BackgroundColor = System.Drawing.Color.White;
-            this.dvgDisplayComputer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dvgDisplayComputer.BackgroundColor = System.Drawing.Color.DarkGray;
+            this.dvgDisplayComputer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgDisplayComputer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgDisplayComputer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colStatus,
             this.colUser,
             this.colStart,
-            this.colUsed,
             this.colRemaining,
             this.colGroup});
-            this.dvgDisplayComputer.Location = new System.Drawing.Point(3, 3);
+            this.dvgDisplayComputer.Location = new System.Drawing.Point(2, 3);
             this.dvgDisplayComputer.Name = "dvgDisplayComputer";
             this.dvgDisplayComputer.RowHeadersWidth = 51;
             this.dvgDisplayComputer.RowTemplate.Height = 24;
-            this.dvgDisplayComputer.Size = new System.Drawing.Size(1053, 492);
+            this.dvgDisplayComputer.Size = new System.Drawing.Size(1105, 512);
             this.dvgDisplayComputer.TabIndex = 3;
             // 
             // colName
@@ -301,12 +364,6 @@
             this.colStart.MinimumWidth = 6;
             this.colStart.Name = "colStart";
             // 
-            // colUsed
-            // 
-            this.colUsed.HeaderText = "Đã sử dụng";
-            this.colUsed.MinimumWidth = 6;
-            this.colUsed.Name = "colUsed";
-            // 
             // colRemaining
             // 
             this.colRemaining.HeaderText = "Còn lại";
@@ -321,94 +378,42 @@
             // 
             // tabMain
             // 
+            this.tabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMain.Controls.Add(this.tabConputerStatusManagement);
             this.tabMain.Controls.Add(this.tabPlayerAccount);
-            this.tabMain.Controls.Add(this.tabOrder);
             this.tabMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabMain.Location = new System.Drawing.Point(12, 28);
+            this.tabMain.Location = new System.Drawing.Point(-6, 72);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(1067, 532);
+            this.tabMain.Size = new System.Drawing.Size(1121, 546);
             this.tabMain.TabIndex = 0;
-            // 
-            // tabOrder
-            // 
-            this.tabOrder.Controls.Add(this.dataGridView1);
-            this.tabOrder.Controls.Add(this.comboBox1);
-            this.tabOrder.Controls.Add(this.label2);
-            this.tabOrder.Location = new System.Drawing.Point(4, 27);
-            this.tabOrder.Name = "tabOrder";
-            this.tabOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOrder.Size = new System.Drawing.Size(1059, 501);
-            this.tabOrder.TabIndex = 3;
-            this.tabOrder.Text = "Dịch vụ";
-            this.tabOrder.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colFoodName,
-            this.colPriceOfFood});
-            this.dataGridView1.Location = new System.Drawing.Point(51, 117);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(961, 244);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // colFoodName
-            // 
-            this.colFoodName.HeaderText = "Tên món ăn";
-            this.colFoodName.MinimumWidth = 6;
-            this.colFoodName.Name = "colFoodName";
-            this.colFoodName.Width = 125;
-            // 
-            // colPriceOfFood
-            // 
-            this.colPriceOfFood.HeaderText = "Giá";
-            this.colPriceOfFood.MinimumWidth = 6;
-            this.colPriceOfFood.Name = "colPriceOfFood";
-            this.colPriceOfFood.Width = 125;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(175, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Chọn món";
             // 
             // CyberManagementFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 575);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1111, 609);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStripHeader);
             this.Controls.Add(this.tabMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CyberManagementFrm";
-            this.Text = "CyberManagement";
+            this.Text = "XCyber";
             this.Load += new System.EventHandler(this.CyberManagementFrm_Load);
             this.menuStripHeader.ResumeLayout(false);
             this.menuStripHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.tabPlayerAccount.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayerManagement)).EndInit();
             this.tabConputerStatusManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvgDisplayComputer)).EndInit();
             this.tabMain.ResumeLayout(false);
-            this.tabOrder.ResumeLayout(false);
-            this.tabOrder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -417,24 +422,23 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.MenuStrip menuStripHeader;
         private System.Windows.Forms.ToolStripMenuItem chucNangToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quanLyNhanVienToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemStaffManagement;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemChangePassword;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemService;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinKháchHàngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heThongToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem baoCaoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRevenueStatistics;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddPlayer;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLoggout;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRevenue;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddPlayer;
+        private System.Windows.Forms.ToolStripButton toolStripButtonLogout;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemChangeStaffInfo;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddStaff;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabConputerStatusManagement;
         private System.Windows.Forms.DataGridView dvgDisplayComputer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUsed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRemaining;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroup;
         private System.Windows.Forms.TabPage tabPlayerAccount;
         private System.Windows.Forms.DataGridView dgvPlayerManagement;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
@@ -442,14 +446,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedAt;
-        private System.Windows.Forms.TabPage tabOrder;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddPlayer;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLoggout;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFoodName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPriceOfFood;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRevenue;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRefesh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRemaining;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGroup;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemShowStaffStatus;
     }
 }

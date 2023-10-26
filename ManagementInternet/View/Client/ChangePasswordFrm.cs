@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace ManagementInternet.View.Client
 {
-    public partial class ChangingPasswordFrm : Form
+    public partial class ChangePasswordFrm : Form
     {
         private MainScreenFrm mainScreenFrm;
         private AccountController accountController;
 
-        public ChangingPasswordFrm(MainScreenFrm mainScreenFrm)
+        public ChangePasswordFrm(MainScreenFrm mainScreenFrm)
         {
             this.mainScreenFrm = mainScreenFrm;
             this.accountController = new AccountController();
@@ -102,6 +102,8 @@ namespace ManagementInternet.View.Client
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            this.mainScreenFrm = null;
+            this.accountController = null;
             this.Hide();
         }
     }

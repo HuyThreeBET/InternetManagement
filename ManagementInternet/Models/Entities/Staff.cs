@@ -16,7 +16,9 @@ namespace ManagementInternet.Models.Entities
         [StringLength(255)]
         public string FullName { get; set; }
 
-        public DateTime DayOfBirth { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string DayOfBirth { get; set; }
 
         public bool State { get; set; }
 

@@ -8,19 +8,19 @@ namespace ManagementInternet.Models.Entities
     public partial class InternetManagementContextDB : DbContext
     {
         public InternetManagementContextDB()
-            : base("name=InternetManagementContextDB2")
+            : base("name=InternetManagementContextDB")
         {
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Computer> Computers { get; set; }
         public virtual DbSet<ComputerType> ComputerTypes { get; set; }
+        public virtual DbSet<DepositHistory> DepositHistories { get; set; }
         public virtual DbSet<Dish> Dishes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<PlayTimeManagement> PlayTimeManagements { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfDish> TypeOfDishes { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -50,6 +50,11 @@ namespace ManagementInternet.Models.Entities
                 .WithRequired(e => e.Account);
 
             modelBuilder.Entity<Computer>()
+                .Property(e => e.IdOfUser)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Computer>()
                 .HasMany(e => e.Orders)
                 .WithRequired(e => e.Computer)
                 .HasForeignKey(e => e.IdOfComputer)
@@ -65,6 +70,11 @@ namespace ManagementInternet.Models.Entities
                 .HasMany(e => e.Computers)
                 .WithOptional(e => e.ComputerType1)
                 .HasForeignKey(e => e.ComputerType);
+
+            modelBuilder.Entity<DepositHistory>()
+                .Property(e => e.IdOfUser)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<Dish>()
                 .HasMany(e => e.Orders)
@@ -95,6 +105,11 @@ namespace ManagementInternet.Models.Entities
                 .IsFixedLength()
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Staff>()
+                .Property(e => e.DayOfBirth)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<TypeOfDish>()
                 .HasMany(e => e.Dishes)
                 .WithRequired(e => e.TypeOfDish)
@@ -109,6 +124,16 @@ namespace ManagementInternet.Models.Entities
             modelBuilder.Entity<User>()
                 .Property(e => e.Balance)
                 .HasPrecision(10, 3);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Computers)
+                .WithOptional(e => e.User)
+                .HasForeignKey(e => e.IdOfUser);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.DepositHistories)
+                .WithOptional(e => e.User)
+                .HasForeignKey(e => e.IdOfUser);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.PlayTimeManagements)

@@ -2,6 +2,7 @@
 using ManagementInternet.Function;
 using ManagementInternet.Models.Entities;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ManagementInternet.View.Client
@@ -51,7 +52,10 @@ namespace ManagementInternet.View.Client
 
             if (this.Account == null)
             {
+                MessageBox.Show("Tên tài khoản không tồn tại");
+
                 this.txtPassword.Text = string.Empty;
+
                 return;
             }
 
@@ -62,6 +66,13 @@ namespace ManagementInternet.View.Client
             if (password.Equals(passwordTxt) && this.Account.RoleId == 1)
             {
                 this.user = this.UserControlelr.getByAccountname(accountNameTxt);
+
+                this.ComputersFrm.Computer.State = true;
+                this.ComputersFrm.Computer.IdOfUser = this.account.Id;
+                this.ComputersFrm.Computer.StartTime = DateTime.Now.ToString();
+                this.ComputersFrm.ComputerController.modify(this.ComputersFrm.Computer);
+                this.computersFrm.SelectingComputer.BackColor = Color.AliceBlue;
+                this.computersFrm.SelectingComputer.Enabled = false;
 
                 if (this.user.Balance < 1)
                 {

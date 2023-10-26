@@ -2,6 +2,7 @@
 using ManagementInternet.Models.Entities;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ManagementInternet.View.Client
@@ -11,14 +12,17 @@ namespace ManagementInternet.View.Client
         private ComputerController computerController;
         private List<Computer> computers;
         private Computer computer;
-        private int computerX;
+        private Button selectingComputer;
+        private short computerX;
 
-        public int ComputerX { get => computerX; set => computerX = value; }
+        public short ComputerX { get => computerX; set => computerX = value; }
         public Computer Computer { get => computer; set => computer = value; }
+        public Button SelectingComputer { get => selectingComputer; set => selectingComputer = value; }
+        internal ComputerController ComputerController { get => computerController; set => computerController = value; }
 
         public ComputersFrm()
         {
-            this.computerController = new ComputerController();
+            this.ComputerController = new ComputerController();
             this.computers = null;
             this.Computer = null;
 
@@ -27,7 +31,7 @@ namespace ManagementInternet.View.Client
 
         private void createComputers()
         {
-            this.computers = this.computerController.getAll();
+            this.computers = this.ComputerController.getAll();
 
             foreach (Computer computer in computers)
             {
@@ -38,6 +42,12 @@ namespace ManagementInternet.View.Client
                 };
 
                 string computerName = "Máy số " + computer.Id.ToString();
+
+                if (computer.State)
+                {
+                    button.BackColor = Color.AliceBlue;
+                    button.Enabled = false;
+                }
 
                 button.Text = computerName;
                 button.Click += btn_Click;
@@ -55,10 +65,9 @@ namespace ManagementInternet.View.Client
         {
             LoginClientFrm loginEmployeeFrm = new LoginClientFrm(this);
 
-            Button computer = sender as Button;
-
-            this.computerX = int.Parse(computer.Text.Substring(6));
-            this.Computer = this.computerController.getById(computerX);
+            this.SelectingComputer = sender as Button;
+            this.computerX = short.Parse(this.SelectingComputer.Text.Substring(6));
+            this.Computer = this.ComputerController.getById(computerX);
 
             loginEmployeeFrm.Show();
         }

@@ -10,11 +10,13 @@ namespace ManagementInternet.View.Working
     {
         private CyberManagementFrm cyberManagementFrm;
         private UserController userController;
+        private DepositHistoryController depositHistoryController;
 
         public AddPlayerFrm(CyberManagementFrm cyberManagementFrm)
         {
             this.cyberManagementFrm = cyberManagementFrm;
             this.userController = new UserController();
+            this.depositHistoryController = new DepositHistoryController();
 
             InitializeComponent();
         }
@@ -28,8 +30,8 @@ namespace ManagementInternet.View.Working
         }
         private void setDefaultTextRechargingTab()
         {
-            this.txtSearch.Text = string.Empty; 
-            this.txtRAccountName.Text = string.Empty;   
+            this.txtSearch.Text = string.Empty;
+            this.txtRAccountName.Text = string.Empty;
             this.txtAmountOfMoney.Text = string.Empty;
         }
 
@@ -69,10 +71,11 @@ namespace ManagementInternet.View.Working
         {
             Account account = new Account();
             User user = new User();
+
             user.Id = this.txtIdCard.Text;
 
             account.Id = this.txtIdCard.Text;
-            account.AccountName = this.txtAccountName.Text;
+            account.AccountName = this.txtAccountName.Text.ToLower();
             account.Passowrd = this.txtPassword.Text;
 
             if (this.rbMale.Checked)
@@ -140,28 +143,32 @@ namespace ManagementInternet.View.Working
 
         private void recharge(string accountname)
         {
-            try
+
+            User user = this.userController.getByAccountname(accountname);
+
+            if (decimal.Parse(this.txtAmountOfMoney.Text) < 0)
             {
-                User user = this.userController.getByAccountname(accountname);
-
-                if (decimal.Parse(this.txtAmountOfMoney.Text) < 0)
-                {
-                    MessageBox.Show("Số tiền nhập không được là số âm");
-                    return;
-                }
-
-                decimal balance = user.Balance + decimal.Parse(this.txtAmountOfMoney.Text);
-
-                user.Balance = balance;
-
-                this.userController.modify(user);
-
-                MessageBox.Show("Nạp tiền thành công ");
+                MessageBox.Show("Số tiền nhập không được là số âm");
+                return;
             }
-            catch
-            {
-                MessageBox.Show("Số tiền nhập không hợp lệ");
-            }
+
+            int amountOfMoney = Int32.Parse(this.txtAmountOfMoney.Text);
+            decimal balance = user.Balance + (decimal)amountOfMoney;
+
+            user.Balance = balance;
+
+            DepositHistory depositHistory = new DepositHistory();
+
+            depositHistory.IdOfUser = user.Id;
+            depositHistory.DepositAmount = amountOfMoney;
+            depositHistory.CreateAt = DateTime.Now;
+
+            this.userController.modify(user);
+            this.depositHistoryController.modify(depositHistory);
+
+            MessageBox.Show("Nạp tiền thành công ");
+
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -181,6 +188,9 @@ namespace ManagementInternet.View.Working
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            this.cyberManagementFrm = null;
+            this.userController = null;
+            this.depositHistoryController = null;
             this.Close();
         }
     }

@@ -164,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 351);
+            this.ClientSize = new System.Drawing.Size(1093, 351);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.gbChangePassword);
             this.Name = "ChangePasswordFrm";

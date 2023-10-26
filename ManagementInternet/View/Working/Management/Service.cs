@@ -430,16 +430,23 @@ namespace ManagementInternet.View.Working.Management
         private void btnRecancelServiceM_Click(object sender, EventArgs e)
         {
             cancelOrNot(true);
+
+            this.btnRecancelServiceM.Enabled = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            this.typeOfDishController = null;
+            this.dishController = null;
+            this.openFileDialog = null;
+            this.helper = null;
             this.Hide();
         }
 
         private void cBTypeOfService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cBTypeOfService.SelectedIndex != 0) {
+            if (this.cBTypeOfService.SelectedIndex != 0)
+            {
                 this.dataGridViewService.Rows.Clear();
 
                 string typeOfService = this.cBTypeOfService.SelectedValue.ToString();

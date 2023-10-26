@@ -1,8 +1,10 @@
 ﻿using ManagementInternet.Controller;
 using ManagementInternet.Models.Entities;
+using ManagementInternet.View.Working.EmployeeManagement;
 using ManagementInternet.View.Working.Management;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ManagementInternet.View.Working
@@ -12,18 +14,32 @@ namespace ManagementInternet.View.Working
         private AccountController accountController;
         private ComputerController computerController;
         private LoginFrm loginFrm;
+        //private SocketManagemant socket;
+        //private bool got = false;
 
         internal AccountController AccountController { get => accountController; set => accountController = value; }
         public LoginFrm LoginFrm { get => loginFrm; set => loginFrm = value; }
+
+        private void setManagementPermission()
+        {
+            byte permission = this.loginFrm.Account.RoleId;
+
+            if (permission == 2)
+            {
+                this.ToolStripMenuItemStaffManagement.Enabled = false;
+                this.ToolStripMenuItemRevenueStatistics.Enabled = false;
+                this.ToolStripMenuItemService.Enabled = false;
+            }
+        }
 
         public CyberManagementFrm(LoginFrm loginFrm)
         {
             this.AccountController = new AccountController();
             this.computerController = new ComputerController();
             this.LoginFrm = loginFrm;
+            //this.socket = new SocketManagemant();
 
             InitializeComponent();
-            this.LoginFrm = loginFrm;
         }
 
         // Bring client data into dgv
@@ -55,6 +71,8 @@ namespace ManagementInternet.View.Working
 
         private void getAllComputers()
         {
+            this.dvgDisplayComputer.Rows.Clear();
+
             List<Computer> computers = this.computerController.getAll();
 
             foreach (Computer computer in computers)
@@ -66,16 +84,78 @@ namespace ManagementInternet.View.Working
                 string state = "Không hoạt động";
                 if (computer.State == true)
                 {
+                    this.dvgDisplayComputer.Rows[index].DefaultCellStyle.BackColor = Color.AliceBlue;
+
                     state = "Đang hoạt động";
                 }
 
                 this.dvgDisplayComputer.Rows[index].Cells[1].Value = state;
-                this.dvgDisplayComputer.Rows[index].Cells[6].Value = computer.ComputerType1.Name;
+
+                if (computer.User != null)
+                {
+                    this.dvgDisplayComputer.Rows[index].Cells[2].Value = computer.User.Account.AccountName;
+                    this.dvgDisplayComputer.Rows[index].Cells[3].Value = computer.StartTime.ToString();
+                    this.dvgDisplayComputer.Rows[index].Cells[4].Value = computer.User.Balance.ToString();
+                }
+
+                this.dvgDisplayComputer.Rows[index].Cells[5].Value = computer.ComputerType1.Name;
             }
         }
 
+        //private void createServer()
+        //{
+        //    if (!socket.ConnectServer())
+        //    {
+        //        socket.CreateServer();
+
+        //        Thread listenThread = new Thread(() =>
+        //        {
+        //            while (true)
+        //            {
+        //                try
+        //                {
+        //                    this.socket.listen();
+        //                }
+        //                catch
+        //                {
+        //                }
+        //            }
+        //        });
+
+        //        listenThread.IsBackground = true;
+        //        listenThread.Start();
+        //    }
+        //    else
+        //    {
+        //        Thread listenThread = new Thread(() =>
+        //        {
+        //            this.socket.listen();
+        //        });
+
+        //        listenThread.IsBackground = true;
+        //        listenThread.Start();
+        //    }
+        //}
+
         private void CyberManagementFrm_Load(object sender, EventArgs e)
         {
+            //if (!got)
+            //{
+            //    // Get ip in 2 ways
+            //    // Wifi
+            //    this.socket.Ip = socket.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
+
+            //    if (string.IsNullOrEmpty(this.socket.Ip))
+            //    {
+            //        // Ethernet
+            //        socket.Ip = socket.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            //    }
+
+            //    got = true;
+            //}
+
+            setManagementPermission();
+            //createServer();
             getDataIntoDgv();
             getAllComputers();
         }
@@ -94,7 +174,7 @@ namespace ManagementInternet.View.Working
 
         private void ToolStripMenuItemChangePassword_Click(object sender, EventArgs e)
         {
-            ChangePasswordFrm changePasswordFrm = new ChangePasswordFrm(this);  
+            ChangePasswordFrm changePasswordFrm = new ChangePasswordFrm(this);
             changePasswordFrm.ShowDialog();
         }
 
@@ -102,6 +182,43 @@ namespace ManagementInternet.View.Working
         {
             RevenueFrm revenueFrm = new RevenueFrm();
             revenueFrm.ShowDialog();
+        }
+
+        private void ToolStripMenuItemAddStaff_Click(object sender, EventArgs e)
+        {
+            AddStaffFrm addStaffFrm = new AddStaffFrm(this);
+            addStaffFrm.ShowDialog();
+        }
+
+        private void ToolStripMenuItemChangeStaffInfo_Click(object sender, EventArgs e)
+        {
+            ChangeInfomationFrm changeInfomationStaffFrm = new ChangeInfomationFrm(this);
+            changeInfomationStaffFrm.ShowDialog();
+        }
+
+        private void toolStripMenuItemRefesh_Click(object sender, EventArgs e)
+        {
+            CyberManagementFrm_Load(sender, e);
+        }
+
+        private void toolStripMenuItemShowStaffStatus_Click(object sender, EventArgs e)
+        {
+            ShowAllInfoStaffFrm showStaffFrm = new ShowAllInfoStaffFrm();
+            showStaffFrm.ShowDialog();
+        }
+
+        private void toolStripButtonAddPlayer_Click(object sender, EventArgs e)
+        {
+            AddPlayerFrm addPlayerFrm = new AddPlayerFrm(this);
+            addPlayerFrm.ShowDialog();
+        }
+
+        private void toolStripButtonLogout_Click(object sender, EventArgs e)
+        {
+            this.accountController = null;
+            this.computerController = null;
+            this.loginFrm = null;
+            this.Close();   
         }
     }
 }

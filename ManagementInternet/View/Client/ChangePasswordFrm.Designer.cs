@@ -1,6 +1,6 @@
 ﻿namespace ManagementInternet.View.Client
 {
-    partial class ChangingPasswordFrm
+    partial class ChangePasswordFrm
     {
         /// <summary>
         /// Required designer variable.

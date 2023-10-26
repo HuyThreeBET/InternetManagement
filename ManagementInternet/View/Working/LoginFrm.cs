@@ -27,17 +27,20 @@ namespace ManagementInternet.View.Working
         {
             this.Account = this.accountController.getByAccountName(this.txtAccountName.Text);
 
+            if (this.Account == null)
+            {
+                MessageBox.Show("Tên tài khoản không tồn tại");
+
+                this.txtPassword.Text = string.Empty;
+
+                return;
+            }
+
             string passwordFromDB = this.Account.Passowrd;
             string passowrdTxt = this.txtPassword.Text;
             string passowrd = Helper.transferPassword(passwordFromDB);
 
-            if (this.Account == null)
-            {
-                this.txtPassword.Text = string.Empty;
-                return;
-            }
-
-            if (passowrd.Equals(passowrdTxt) && this.Account.RoleId == 2)
+            if (passowrd.Equals(passowrdTxt) && this.Account.RoleId > 1)
             {
                 CyberManagementFrm cyberManagementFrm = new CyberManagementFrm(this);
                 cyberManagementFrm.Show();

@@ -22,7 +22,15 @@ namespace ManagementInternet.Models.Entities
 
         public bool State { get; set; }
 
+        [StringLength(22)]
+        public string IdOfUser { get; set; }
+
+        [StringLength(255)]
+        public string StartTime { get; set; }
+
         public virtual ComputerType ComputerType1 { get; set; }
+
+        public virtual User User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

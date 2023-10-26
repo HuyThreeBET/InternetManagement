@@ -14,17 +14,13 @@ namespace ManagementInternet.View
         private void btnOpenEmployeeForm_Click(object sender, System.EventArgs e)
         {
             LoginFrm loginFrm = new LoginFrm();
-            loginFrm.Show();
-
-            this.Hide();
+            loginFrm.ShowDialog();   
         }
 
         private void btnOpenClientForm_Click(object sender, System.EventArgs e)
         {
             ComputersFrm computerFrm = new ComputersFrm();
-            computerFrm.Show();
-
-            this.Hide();
+            computerFrm.ShowDialog();
         }
     }
 }

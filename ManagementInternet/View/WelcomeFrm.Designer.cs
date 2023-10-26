@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnOpenMangerForm = new System.Windows.Forms.Button();
-            this.btnOpenEmployeeForm = new System.Windows.Forms.Button();
+            this.btnOpenWorkingSpace = new System.Windows.Forms.Button();
             this.btnOpenClientForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -38,39 +37,28 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnOpenMangerForm);
-            this.panel1.Controls.Add(this.btnOpenEmployeeForm);
+            this.panel1.Controls.Add(this.btnOpenWorkingSpace);
             this.panel1.Controls.Add(this.btnOpenClientForm);
             this.panel1.Location = new System.Drawing.Point(141, 172);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 95);
             this.panel1.TabIndex = 0;
             // 
-            // btnOpenMangerForm
+            // btnOpenWorkingSpace
             // 
-            this.btnOpenMangerForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenMangerForm.Location = new System.Drawing.Point(398, 23);
-            this.btnOpenMangerForm.Name = "btnOpenMangerForm";
-            this.btnOpenMangerForm.Size = new System.Drawing.Size(138, 41);
-            this.btnOpenMangerForm.TabIndex = 2;
-            this.btnOpenMangerForm.Text = "Quản lí";
-            this.btnOpenMangerForm.UseVisualStyleBackColor = true;
-            // 
-            // btnOpenEmployeeForm
-            // 
-            this.btnOpenEmployeeForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenEmployeeForm.Location = new System.Drawing.Point(203, 23);
-            this.btnOpenEmployeeForm.Name = "btnOpenEmployeeForm";
-            this.btnOpenEmployeeForm.Size = new System.Drawing.Size(138, 41);
-            this.btnOpenEmployeeForm.TabIndex = 1;
-            this.btnOpenEmployeeForm.Text = "Nhân viên";
-            this.btnOpenEmployeeForm.UseVisualStyleBackColor = true;
-            this.btnOpenEmployeeForm.Click += new System.EventHandler(this.btnOpenEmployeeForm_Click);
+            this.btnOpenWorkingSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenWorkingSpace.Location = new System.Drawing.Point(367, 23);
+            this.btnOpenWorkingSpace.Name = "btnOpenWorkingSpace";
+            this.btnOpenWorkingSpace.Size = new System.Drawing.Size(138, 41);
+            this.btnOpenWorkingSpace.TabIndex = 1;
+            this.btnOpenWorkingSpace.Text = "Làm việc";
+            this.btnOpenWorkingSpace.UseVisualStyleBackColor = true;
+            this.btnOpenWorkingSpace.Click += new System.EventHandler(this.btnOpenEmployeeForm_Click);
             // 
             // btnOpenClientForm
             // 
             this.btnOpenClientForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenClientForm.Location = new System.Drawing.Point(3, 23);
+            this.btnOpenClientForm.Location = new System.Drawing.Point(34, 23);
             this.btnOpenClientForm.Name = "btnOpenClientForm";
             this.btnOpenClientForm.Size = new System.Drawing.Size(137, 41);
             this.btnOpenClientForm.TabIndex = 0;
@@ -107,8 +95,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnOpenMangerForm;
-        private System.Windows.Forms.Button btnOpenEmployeeForm;
+        private System.Windows.Forms.Button btnOpenWorkingSpace;
         private System.Windows.Forms.Button btnOpenClientForm;
         private System.Windows.Forms.Label label1;
     }

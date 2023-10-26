@@ -21,8 +21,10 @@ namespace ManagementInternet.View.Client
         private int dsecond = 0;
         private int dminute = 0;
         private int dhour = 0;
+        private int totalAmountService = 0;
 
         public LoginClientFrm LoginClientFrm { get => loginClientFrm; set => loginClientFrm = value; }
+        public int TotalAmountService { get => totalAmountService; set => totalAmountService = value; }
 
         // The LoginClientFrm parameter is passed to retrieve information from the previous form
         public MainScreenFrm(LoginClientFrm LoginClientFrm)
@@ -56,7 +58,6 @@ namespace ManagementInternet.View.Client
             this.dhour = hour;
             this.dminute = minute;
             this.dsecond = second;
-
             this.txtTotalTime.Text = this.dhour.ToString().PadLeft(2, '0') + ":" + this.dminute.ToString().PadLeft(2, '0') + ":" + this.dsecond.ToString().PadLeft(2, '0');
         }
 
@@ -137,7 +138,7 @@ namespace ManagementInternet.View.Client
         private double prepareTheBill(int price)
         {
             double amountPerMinute = (double)price / 60;
-            double minute = ((double)this.dsecond / 60) * 60;
+            double minute = ((double)this.isecond / 60) * 60;
             double result = amountPerMinute * minute;
 
             return result;
@@ -155,6 +156,10 @@ namespace ManagementInternet.View.Client
             this.LoginClientFrm.User.Balance = (decimal)(balance - amountUsed);
             this.LoginClientFrm.UserControlelr.modify(this.LoginClientFrm.User);
             this.playTimeManagementController.modify(this.LoginClientFrm.PlayTimeManagement);
+            this.loginClientFrm.ComputersFrm.Computer.State = false;
+            this.loginClientFrm.ComputersFrm.Computer.IdOfUser = null;
+            this.loginClientFrm.ComputersFrm.Computer.StartTime = null;
+            this.loginClientFrm.ComputersFrm.ComputerController.modify(this.loginClientFrm.ComputersFrm.Computer);
 
             if (this.checkingBalance)
             {
@@ -183,7 +188,7 @@ namespace ManagementInternet.View.Client
                 }
             }
             );
-           
+
             timeOut.Start();
         }
 
@@ -199,6 +204,7 @@ namespace ManagementInternet.View.Client
             this.txtCostPlayTime.Text = this.LoginClientFrm.ComputersFrm.Computer.ComputerType1.Price.ToString() + ".000";
 
             totalTime(this.loginClientFrm.ComputersFrm.Computer.ComputerType1.Price);
+
             // TEST get out of amount function
             // totalTimeTEST();
 
@@ -209,13 +215,26 @@ namespace ManagementInternet.View.Client
         {
             logout();
 
-            Application.Exit();
+            this.loginClientFrm = null;
+            this.playTimeManagementController = null;
+            this.Close();
+        }
+
+        public void setTotalAmountServie()
+        {
+            this.txtCostService.Text = this.TotalAmountService.ToString() + ".000.VND";  
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            ChangingPasswordFrm changingPasswordFrm = new ChangingPasswordFrm(this);
-            changingPasswordFrm.Show();
+            ChangePasswordFrm changePasswordFrm = new ChangePasswordFrm(this);
+            changePasswordFrm.ShowDialog();
+        }
+
+        private void btnService_Click(object sender, EventArgs e)
+        {
+            OrderServiceFrm orderServiceFrm = new OrderServiceFrm(this);
+            orderServiceFrm.ShowDialog();
         }
     }
 }

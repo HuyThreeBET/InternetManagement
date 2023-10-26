@@ -45,7 +45,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnService = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.gBInfo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,6 +88,7 @@
             this.txtCostService.ReadOnly = true;
             this.txtCostService.Size = new System.Drawing.Size(153, 24);
             this.txtCostService.TabIndex = 9;
+            this.txtCostService.Text = "0.000 VND";
             // 
             // txtCostPlayTime
             // 
@@ -180,7 +181,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnChangePassword, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnLogout, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnService, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -228,14 +229,15 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // button2
+            // btnService
             // 
-            this.button2.Location = new System.Drawing.Point(136, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 67);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Dịch vụ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnService.Location = new System.Drawing.Point(136, 3);
+            this.btnService.Name = "btnService";
+            this.btnService.Size = new System.Drawing.Size(126, 67);
+            this.btnService.TabIndex = 1;
+            this.btnService.Text = "Dịch vụ";
+            this.btnService.UseVisualStyleBackColor = true;
+            this.btnService.Click += new System.EventHandler(this.btnService_Click);
             // 
             // button1
             // 
@@ -284,7 +286,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnService;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtTotalTime;
     }

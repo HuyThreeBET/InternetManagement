@@ -9,6 +9,7 @@ namespace ManagementInternet.Controller
         public void modify(User obj)
         {
             InternetManagementContextDB context = new InternetManagementContextDB();
+
             context.Users.AddOrUpdate(obj);
             context.SaveChanges();
         }

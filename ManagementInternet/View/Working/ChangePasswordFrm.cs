@@ -102,6 +102,8 @@ namespace ManagementInternet.View.Working.Management
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            this.cyberManagementFrm = null;
+            this.helper = null;
             this.Hide();
         }
     }

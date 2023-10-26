@@ -69,31 +69,38 @@ namespace ManagementInternet.View.Working
 
         private void add()
         {
-            Account account = new Account();
-            User user = new User();
-
-            user.Id = this.txtIdCard.Text;
-
-            account.Id = this.txtIdCard.Text;
-            account.AccountName = this.txtAccountName.Text.ToLower();
-            account.Passowrd = this.txtPassword.Text;
-
-            if (this.rbMale.Checked)
+            try
             {
-                account.Sex = true;
+                Account account = new Account();
+                User user = new User();
+
+                user.Id = this.txtIdCard.Text;
+
+                account.Id = this.txtIdCard.Text;
+                account.AccountName = this.txtAccountName.Text.ToLower();
+                account.Passowrd = this.txtPassword.Text;
+
+                if (this.rbMale.Checked)
+                {
+                    account.Sex = true;
+                }
+                else
+                {
+                    account.Sex = false;
+                }
+
+                account.CreateAt = DateTime.Now;
+                account.RoleId = 1;
+
+                this.cyberManagementFrm.AccountController.modify(account);
+                this.userController.modify(user);
+
+                MessageBox.Show("Thêm hội viên thành công");
             }
-            else
+            catch
             {
-                account.Sex = false;
+                MessageBox.Show("Đã tồn tại căn cước công dân");
             }
-
-            account.CreateAt = DateTime.Now;
-            account.RoleId = 1;
-
-            this.cyberManagementFrm.AccountController.modify(account);
-            this.userController.modify(user);
-
-            MessageBox.Show("Thêm hội viên thành công");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

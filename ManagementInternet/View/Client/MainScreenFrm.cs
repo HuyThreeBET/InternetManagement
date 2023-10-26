@@ -82,6 +82,11 @@ namespace ManagementInternet.View.Client
         {
             Invoke(new Action(() =>
             {
+                if (this.dsecond == 0)
+                {
+                    this.dsecond = 59;
+                }
+
                 this.dsecond--;
 
                 if (this.dsecond == 0)
@@ -222,7 +227,7 @@ namespace ManagementInternet.View.Client
 
         public void setTotalAmountServie()
         {
-            this.txtCostService.Text = this.TotalAmountService.ToString() + ".000.VND";  
+            this.txtCostService.Text = this.TotalAmountService.ToString() + ".000.VND";
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)

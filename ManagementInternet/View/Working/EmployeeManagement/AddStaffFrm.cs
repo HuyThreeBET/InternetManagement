@@ -79,50 +79,57 @@ namespace ManagementInternet.View.Working.EmployeeManagement
 
         private void add()
         {
-            Account account = new Account();
-            Staff staff = new Staff();
-
-            string id = this.txtId.Text;
-            string fullName = this.txtFullName.Text;
-            string dayOfBirthString = this.dtpDOB.Value.ToString("yyyy-MM-dd");
-            string accountName = this.txtAccountName.Text;
-            string passowrd = this.txtPassword.Text;
-
-            account.Id = id;
-            account.AccountName = accountName;
-            account.Passowrd = passowrd;
-
-            if (this.rbMale.Checked)
+            try
             {
-                account.Sex = true;
+                Account account = new Account();
+                Staff staff = new Staff();
+
+                string id = this.txtId.Text;
+                string fullName = this.txtFullName.Text;
+                string dayOfBirthString = this.dtpDOB.Value.ToString("yyyy-MM-dd");
+                string accountName = this.txtAccountName.Text;
+                string passowrd = this.txtPassword.Text;
+
+                account.Id = id;
+                account.AccountName = accountName;
+                account.Passowrd = passowrd;
+
+                if (this.rbMale.Checked)
+                {
+                    account.Sex = true;
+                }
+                else
+                {
+                    account.Sex = false;
+                }
+
+                if (this.rbStaff.Checked)
+                {
+                    account.RoleId = 2;
+                }
+                else
+                {
+                    account.RoleId = 3;
+                }
+
+                account.CreateAt = DateTime.Now;
+
+                staff.Id = id;
+                staff.FullName = fullName.ToLower();
+                staff.DayOfBirth = dayOfBirthString;
+                staff.State = true;
+                staff.DayOfWork = DateTime.Now;
+                staff.DayOff = DateTime.Now;
+
+                this.cyberManagementFrm.AccountController.modify(account);
+                this.staffController.modify(staff);
+
+                MessageBox.Show("Thêm thành công");
             }
-            else
+            catch
             {
-                account.Sex = false;
+                MessageBox.Show("Trùng căn cước công dân");
             }
-
-            if (this.rbStaff.Checked)
-            {
-                account.RoleId = 2;
-            }
-            else
-            {
-                account.RoleId = 3;
-            }
-
-            account.CreateAt = DateTime.Now;
-
-            staff.Id = id;
-            staff.FullName = fullName.ToLower();
-            staff.DayOfBirth = dayOfBirthString;
-            staff.State = true;
-            staff.DayOfWork = DateTime.Now;
-            staff.DayOff = DateTime.Now;
-
-            this.cyberManagementFrm.AccountController.modify(account);
-            this.staffController.modify(staff);
-
-            MessageBox.Show("Thêm thành công");
         }
 
         private void setDefaultFields()
@@ -133,9 +140,9 @@ namespace ManagementInternet.View.Working.EmployeeManagement
             DateTime defaultDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             this.dtpDOB.Value = defaultDate;
             this.rbMale.Checked = true;
-            this.txtAccountName.Text = string.Empty;    
+            this.txtAccountName.Text = string.Empty;
             this.txtPassword.Text = string.Empty;
-            this.rbStaff.Checked = true;    
+            this.rbStaff.Checked = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -29,6 +29,7 @@ namespace ManagementInternet.View.Working
                 this.ToolStripMenuItemStaffManagement.Enabled = false;
                 this.ToolStripMenuItemRevenueStatistics.Enabled = false;
                 this.ToolStripMenuItemService.Enabled = false;
+                this.toolStripMenuItemShowStaffStatus.Enabled = false;
             }
         }
 
